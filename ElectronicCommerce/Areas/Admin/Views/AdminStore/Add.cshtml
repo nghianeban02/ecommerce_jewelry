@@ -1,0 +1,49 @@
+﻿@model ElectronicCommerce.Models.Store;
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-6 mb-2 mb-xl-0">
+                    <h3 class="font-weight-bold">Cơ sở mới</h3>
+                    <form method="post" asp-area="admin" asp-controller="store" asp-action="add">
+                        <div class="form-group">
+                            <label for="role_id">Id: </label>
+                            <input type="text" class="form-control" asp-for="Id" id="store_id" placeholder="Store_Id">
+                        </div>
+                        <div class="form-group">
+                            <label for="store_name">Tên :</label>
+                            <input type="text" class="form-control" asp-for="Name" id="store_name" placeholder="Store_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="store_description">Mô tả :</label>
+                            <input type="text" class="form-control" asp-for="Description" id="store_description" placeholder="Store_description">
+                        </div>
+                        <div class="form-group">
+                            <label for="store_address">Địa chỉ :</label>
+                            <input type="text" class="form-control" asp-for="Address" id="store_address" placeholder="Store_address">
+                        </div>
+                        <div class="form-group">
+                            <label for="store_city">Tỉnh/ Thành phố :</label>
+                            <input type="text" class="form-control" asp-for="City" id="store_city" placeholder="Store_city">
+                        </div>
+                        <div class="form-group">
+                            <label for="store_district">Tên :</label>
+                            <input type="text" class="form-control" asp-for="District" id="store_district" placeholder="Store_district">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for=Image for="store_name">Ảnh đại diện sản phẩm</label>
+                            <input type="file" name="photo" />
+                        </div>
+                        <input type="submit" class="btn btn-primary me-2" value="Xác nhận">
+                        <button class="btn btn-light">Làm mới</button>
+                    </form>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link rel="stylesheet" href="~/customer/style/cod-success.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SCRIPT JS-->
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header__wrapper">
+            <div style="display: flex;">
+                <div class="header__logo">
+                    <img src="~/customer/img/hnjcart.svg" alt="" class="logo" width="120" height="36">
+                </div>
+                <div class="header__wrapper-title">
+                    <span><i class="fa-sharp fa-solid fa-lock" style="font-size: 20px; margin-left: 4px;"></i></span>
+                    <span style="font-size:12px;">THANH TOÁN AN TOÀN</span>
+                </div>
+            </div>
+            <div class="header__continue-wrapper">
+                <a href="http://localhost:5000" class="header__continue-sale">
+                    TIẾP TỤC MUA SẮM
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="cart__container">
+        <div class="cart__wrapper">
+            <div class="process__wrapper">
+                <span>Giỏ hàng</span>
+                <span>Đặt hàng</span>
+                <span>Trả tiền</span>
+                <span style="color:#333;font-weight:600;">Hoàn thành đơn hàng</span>
+            </div>
+
+            <div class="success-container">
+                <div class="success-wrapper">
+                    <div class="success-notify">
+                        <div class="success-animation">
+                            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+                        </div>
+                        <h2>Đặt hàng thành công</h2>
+                        <p>Bạn đã thực hiện đặt hàng thành công</p>
+                        <p>Mã đơn hàng: #</p>
+                        <p style="margin-top:20px;">********</p>
+                        <h3>Thông tin giao nhận</h3>
+                        <p>@ViewBag.ship.FULLNAME</p>
+                        <p>@ViewBag.ship.PHONE</p>
+                        <p>@ViewBag.ship.ADDRESS</p>
+                        <p>@ViewBag.ship.MAIL</p>
+                        <h3 style="margin-top:40px;">Phương thức thanh toán</h3>
+                        <p>Thanh toán khi nhận hàng (COD)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const d = new Date();
+    document.getElementById("date-checkout").innerHTML = d.toLocaleDateString("vi-VN", options);</script>

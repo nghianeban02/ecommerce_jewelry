@@ -1,0 +1,100 @@
+﻿@model ElectronicCommerce.Models.CategoryProduct;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="create-new-access d-flex flex-row-reverse">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Mã danh mục</th>
+                                     <th>Danh mục trang sức</th>
+                                      <th>Chất liệu</th>
+                                      <th></th>
+                                </tr>
+                               
+                            </thead>
+                            <tbody>
+                                @foreach (var categoryparent in ViewBag.categoryParents)
+                                {
+                                 <tr>
+                                    <td>@categoryparent.Id</td>
+                                     <td>@categoryparent.Name</td>
+                                    
+                                     <td>
+                                         <ul>
+                                            @foreach(var categoryproduct in ViewBag.categoryProduct)
+                                            {
+                                                if(categoryproduct.ParentId == categoryparent.Id)
+                                                {
+                                                    <li>@categoryproduct.Name</li> 
+                                                }
+                                              
+                                            }
+                                            </ul>
+                                        </td>
+                                         <td>
+                                             <ul style="list-style-type:none;">
+                                            @foreach(var categoryproduct in ViewBag.categoryProduct)
+                                            {
+                                                if(categoryproduct.ParentId == categoryparent.Id)
+                                                {
+                                                    <li><a asp-area="admin" asp-controller="categoryproduct" asp-action="delete" asp-route-id="@categoryproduct.Id" onclick='return confirm("Bạn có chắc chắn xóa danh mục này ?")'>Xoá</a></li> 
+                                                }
+                                              
+                                            }
+                                            </ul>
+                                        </td>
+
+                                </tr>
+                               
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                     <hr />
+                    
+                </div>
+                <div class="col-md-4">
+                    <h3 class="mt-3">Thêm chi tiết danh mục</h3>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form method="post" asp-area="admin" asp-controller="categoryproduct" asp-action="add">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12" style="margin-top:30px;">
+                                                <select class="js-example-basic-single form-control select2-single" id="category_parent" asp-for=ParentId>
+                                                    <option selected value="">Chọn loại trang sức</option>
+                                                    @foreach (var categoryparent in ViewBag.categoryParents)
+                                                    {
+                                                        <option value="@categoryparent.Id">@categoryparent.Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                         <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="user_email">Tên loại chất liệu</label>
+                                                <input type="text" class="form-control" asp-for=Name id="category_child" placeholder="Nhập loại chất liệu">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4" style="margin-top:26px;">
+                                                <input type="submit" class="btn btn-primary" value="Xác nhận">
+                                              
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,255 @@
+﻿@model ElectronicCommerce.Models.Product;
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                    <div class="create-new-access d-flex flex-row-reverse">
+                        <a class="btn btn-primary" data-toggle="modal" data-target="#addProduct" asp-area="admin" asp-controller="product" asp-action="add">Tạo sản phẩm mới</a>
+                    </div>
+                                     <!-- The Modal them san pham-->
+	<form method="post" enctype="multipart/form-data" asp-area="admin" asp-controller="product" asp-action="add">
+	<div class="modal" id="addProduct">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Thêm sản phẩm</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+                <div class="modal-body">
+
+                    <label for="product_name">Tên sản phẩm</label>
+                    <input type="text" class="form-control" asp-for=Name placeholder="Nhập tên sản phẩm">
+                    <label for="product_category">Danh mục sản phẩm</label>
+                    <select class="js-example-basic-single form-control select2-single" asp-for=CatId>
+                        <option selected value="">Chọn danh mục</option>
+                        @foreach (var category in ViewBag.categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                    <label for="product_main_stone">Loại đá chính</label>
+                    <select class="js-example-basic-single form-control select2-single" asp-for=MainStoneId>
+                        <option selected value="">Chọn loại đá chính</option>
+                        @foreach (var stoneType in ViewBag.stoneTypes)
+                        {
+                            <option value="@stoneType.Id">@stoneType.Name</option>
+                        }
+                    </select>
+                    <label for="product_main_stone">Loại đá phụ</label>
+                    <select class="js-example-basic-single form-control select2-single" asp-for=SubStoneId>
+                        <option selected value="">Chọn loại đá phụ</option>
+                        @foreach (var stoneType in ViewBag.stoneTypes)
+                        {
+                            <option value="@stoneType.Id">@stoneType.Name</option>
+                        }
+                    </select>
+                    <label for="product_main_stone">Loại mệnh</label>
+                    <select class="js-example-basic-single form-control select2-single" asp-for=GeomancyId>
+                        <option selected value="">Chọn loại đá chính</option>
+                        @foreach (var geomancy in ViewBag.geomancies)
+                        {
+                            <option value="@geomancy.Id">@geomancy.Name</option>
+                        }
+                    </select>
+                    <select class="js-example-basic-single form-control select2-single" asp-for=GeomancyId>
+                        <option selected value="">Chọn loại đá chính</option>
+                        @foreach (var geomancy in ViewBag.geomancies)
+                        {
+                            <option value="@geomancy.Id">@geomancy.Name</option>
+                        }
+                    </select>
+                    <label for="product_name">Màu sắc</label>
+                    <input type="text" class="form-control" asp-for=Color placeholder="Nhập màu sản phẩm">
+                    <label for="product_name">Ảnh đại diện sản phẩm</label>
+                    <input type="file" name="photo" />
+                    <br /><br />
+                    <label for="product_name">Ảnh mô tả sản phẩm</label>
+                    <input type="file" name="photos" multiple="multiple" />
+                    <br /><br />
+                    <label for="product_name">Note</label>
+                    <input type="text" class="form-control" asp-for=Note placeholder="Ghi chú">
+
+
+                </div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<input type="submit" class="btn btn-primary" value="Xác nhận">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+			</div>
+
+		</div>
+	</div>
+	
+</div>
+
+</form>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Mã danh mục</th>
+                                    <th>Luot xem</th>
+                                    <th>Best Seller</th>
+                                    <th>Home Flag</th>
+                                    <th>Ẩn / Hiện</th>
+                                    <th>Note</th>
+                                    <th>#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in ViewBag.products)
+                                {
+                                       
+                                        <tr>
+                                    <td>@product.Id</td>
+                                    <td>@product.Name</td>
+                                    <td>@product.Cat.Id</td>
+                                    <td>@product.countProduct</td>
+                                    <td>
+                                         @if (product.BestSeller == true)
+                                                {
+                                                   <label class="switch">
+                                                   <input type="checkbox" class="best-seller" checked value="true" data-id="@product.Id">
+                                                   <span class="slider round"></span>
+                                                   </label>
+                                                }
+                                                else
+                                                {
+                                                   <label class="switch">
+                                                   <input type="checkbox" class="best-seller" value="false" data-id="@product.Id" >
+                                                   <span class="slider round"></span>
+                                                   </label>
+                                                }   
+                                    <td>
+                                        @if (product.HomeFlag == true)
+                                                {
+                                                   <label class="switch">
+                                                   <input type="checkbox" class="home-flag" checked value="true" data-id="@product.Id">
+                                                   <span class="slider round"></span>
+                                                   </label>
+                                                }
+                                                else
+                                                {
+                                                   <label class="switch">
+                                                   <input type="checkbox" class="home-flag" value="false" data-id="@product.Id" >
+                                                   <span class="slider round"></span>
+                                                   </label>
+                                                }
+                                    </td>
+                                    <td>
+                                       @if (product.Active == true)
+                                                {
+                                                   <label class="switch">
+                                                   <input type="checkbox" class="active" checked value="true" data-id="@product.Id">
+                                                   <span class="slider round"></span>
+                                                   </label>
+                                                }
+                                                else
+                                                {
+                                                   <label class="switch">
+                                                   <input type="checkbox" class="active" value="false" data-id="@product.Id" >
+                                                   <span class="slider round"></span>
+                                                   </label>
+                                                }
+                                    </td>
+                                    <td>@product.Note</td>
+                                    <td>
+                                        <a asp-area="admin" asp-controller="product" asp-action="detail" asp-route-id="@product.Id">Chi tiết</a> | 
+                                        <a asp-area="admin" asp-controller="review" asp-action="index" asp-route-id="@product.Id">Duyệt bình luận</a>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="~/admin/lib/product.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

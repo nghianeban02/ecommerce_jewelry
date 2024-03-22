@@ -1,0 +1,116 @@
+﻿.order_id {
+    border: 1px solid #E5E5E5;
+    width: 365px;
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    float: left;
+    padding-top: 20px;
+    position: relative;
+}
+
+    .order_id span {
+        position: absolute;
+        color: #767676;
+        display: block;
+        font-size: 13px;
+        top: 20px;
+        transition: top linear 0.1s;
+        z-index: 3;
+    }
+
+    .order_id input {
+        position: absolute;
+        width: 364px;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        padding-top: 20px;
+        padding-left: 10px;
+        font-size: 13px;
+    }
+
+        .order_id input:hover {
+            border: 1px solid #333;
+        }
+
+        .order_id input:focus {
+            outline: none;
+        }
+
+        .order_id input[type=text]:focus ~ span {
+            top: 10px;
+        }
+
+        .order_id:has( > input[type=text]:focus) {
+            border: 1px solid #333;
+        }
+
+        .order_id:has( > input[type=text]:focus):hover {
+            border: 0px;
+        }
+
+    .order_id input[type=text]:not(:focus):valid ~ span {
+        top: 10px;
+    }
+
+#find-order-status {
+    width:200px;
+    height:60px;
+    background-color:#FFFFFF;
+    color:#333;
+    border:1px solid #000000;
+    margin-left:30px;
+}
+
+    #find-order-status:hover {
+        cursor: pointer;
+        background-color: #000000;
+        color:#FFFFFF;
+    }
+
+.order-track-form {
+    margin-bottom:20px;
+}
+
+.wrapper table {
+    float: left;
+    width:100%;
+    margin-bottom: 20px;
+}
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+.horizontal-timeline .items {
+    border-top: 2px solid #ddd;
+}
+
+    .horizontal-timeline .items .items-list {
+        position: relative;
+        margin-right: 0;
+    }
+
+        .horizontal-timeline .items .items-list:before {
+            content: "";
+            position: absolute;
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            background-color: #ddd;
+            top: 0;
+            margin-top: -5px;
+        }
+
+    .horizontal-timeline .items .items-list {
+        padding-top: 15px;
+    }

@@ -1,0 +1,253 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="~/customer/style/booking_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="~/customer/style/pre-loader.css" />
+
+    <!-- SCRIPT JS-->
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="~/customer/lib/booking_page.js"></script>
+</head>
+<body>
+        <header>
+            <div class="header__wrapper">
+                <div style="display: flex;">
+                    <div class="header__logo">
+                        <img src="~/customer/img/hnjcart.svg" alt="" class="logo" width="120" height="36">
+                    </div>
+                    <div class="header__wrapper-title">
+                        <span><i class="fa-sharp fa-solid fa-lock" style="font-size: 20px; margin-left: 4px;"></i></span>
+                        <span style="font-size:12px;">THANH TOÁN AN TOÀN</span>
+                    </div>
+                </div>
+                <div class="header__continue-wrapper">
+                    <a href="http://localhost:42202" class="header__continue-sale">
+                        TIẾP TỤC MUA SẮM
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="cart__container">
+            <div class="cart__wrapper">
+                <div class="process__wrapper">
+                    <span>Giỏ hàng</span>
+                    <span style="color:#333;font-weight:600;">Đặt hàng</span>
+                    <span>Trả tiền</span>
+                    <span>Hoàn thành đơn hàng</span>
+                </div>
+
+                <div class="booking__wrapper-container">
+                    <div class="booking__information-container">
+                        <p class="header__title">Địa chỉ giao hàng</p>
+                        <div class="information-form__wrapper">
+                            <div class="area__wrapper" style="margin-top:26px;">
+                                <span>Vị trí*</span>
+                                <span style="margin-top:10px;">Vietnam</span>
+                            </div>
+
+                            <div class="name__wrapper">
+                                <div class="full_name">
+                                    <input type="text" id="full_name-input" required class="full_name-input" />
+                                    <span class="full_name-holder">Họ và tên*</span>
+                                </div>
+
+                                <div class="customer_mail">
+                                    <input type="text" id="gmail-input" required class="customer_mail-input" />
+                                    <span class="customer_mail-holder">Địa chỉ gmail*</span>
+                                </div>
+                            </div>
+
+                            <div class="phone__wrapper">
+                                <div class="zip__code">
+                                    <span>VN +84</span>
+                                </div>
+
+                                <div class="phone__wrapper-box">
+                                    <div class="phone__wrapper-txb">
+                                        <input type="text" class="phone-input" required id="phone-input" />
+                                        <span class="phone-holder" style="padding-top:3px;">Số điện thoại liên lạc*</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="address__wrapper">
+                                <span class="address_title">Địa chỉ đường phố*</span>
+                                <textarea id="address-input" required placeholder="Địa chỉ đường phố ,căn hộ, Suĩte, Đơn vi,v.v."></textarea>
+                            </div>
+
+                            <div class="policy__wrapper">
+                                <a href="#">Chính sách bảo mật & Cookie</a>
+                                <a href="#">ghi chú địa chỉ chung</a>
+                            </div>
+                            <div class="shipping-information__wrapper">
+                                <button class="btn btn-confirm-information" onclick="saveCardShippingInfo(event);">Xác nhận và lưu</button>
+                            </div>
+                        </div>
+                        <div class="overview_cart__summary-wrapper">
+                            <div class="overview_cart-title-wrapper">
+                                <span style="color:#333; font-weight:bolder;font-size:24px;">Giỏ hàng</span>
+                                <span style="color:#333; font-size:14px;padding-top:10px;">Kiểm tra những sản phẩm thanh toán</span>
+                            </div>
+                            <div class="cart-detail-wrapper">
+                                <!-- Load san pham vao day bang viewbag -->
+                                @foreach (var item in ViewBag.products)
+                                {
+                                    <div class="cart-item-box">
+                                        <img src="/admin/images/products/@item.image" alt="" style="width:135px;height:180px;" />
+                                        <div class="cart-quantity">
+                                            <span style="font-size:12px;font-weight:bolder;">x @item.quantity</span>
+                                        </div>
+                                        <div class="product-detail-wrapper">
+                                            <span style="text-overflow:ellipsis;color:#999;margin-top:6px;">@item.name</span>
+                                            <span style="margin-top:6px;">@item.price</span>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="shipping-wrapper">
+                            <span style="font-size:20px;font-weight:bolder">Bảo Hiểm Vận Chuyển</span>
+                        </div>
+                        <div class="shipping-title">
+                            <span><i class="fa fa-check"></i>  Đảm bảo vận chuyển <b>$0.00</b></span>
+                        </div>
+                    </div>
+                    <div class="booking__summary-container">
+                        <div class="title__summary">
+                            <h4>Tóm Tắt Đơn Hàng</h4>
+                        </div>
+                        <div class="total__summary-wrapper">
+                            <div class="temp-total">
+                                <span style="color: #333;font-size:20px;">Tạm tính:</span>
+                                <span style="color:#999; font-size:14px;text-decoration:line-through;" id="total-before-promo"></span>
+                                <span style="color:#333; font-weight:bolder;font-size:24px;" id="total-booking-price">@ViewBag.total $</span>
+                                <input type="hidden" value="@ViewBag.total" id="total-cart" />
+                            </div>
+                        </div>
+                        <div class="point-count" style="margin-top:14px;float:right;">
+                            <span style="color: #767676;">Phần thưởng</span><span style="color: #C44900;"> @ViewBag.pointCount</span><span style="color:#333;position:relative;" id="point-seperate"> điểm HNJ</span>
+                        </div>
+                        <div class="promotion__wrapper" style="margin-top:80px;">
+                            <span>Mã phiếu giảm giá <i class="fa fa-question-circle" aria-hidden="true"></i></span>
+                            <div class="promotion__wrapper-txb">
+                                <input type="text" id="promotion-txb" class="promotion-txb" />
+                            </div>
+                        </div>
+                        <div class="customer__promotion-wrapper">
+                            @if (ViewBag.promos != null)
+                            {
+                                foreach (var item in ViewBag.promos)
+                                {
+                                    <div class="customer__promotion-item">
+                                        <div class="promotion__header-title">
+                                            <span style="background-color:#000000;color:#FFF;font-size:12px; padding:4px 6px;">Giảm giá</span>
+                                            <div class="promotion-info">
+                                                <span>Giảm <span class="discount-value">@item.DiscountValue</span><span class="discount-unit">@item.DiscountUnit</span> Đơn tối thiểu <span class="min-order-value">@item.MinOrder$</span></span>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <input type="hidden" name="id" value="@item.Code">
+                                        <div class="promotion-info-detail">
+                                            <span>Giảm tối đa</span> <span class="max-discount-value">@item.MaxDiscount</span>$
+
+                                            <button onclick="applyPromotion(event,'@item.Code','@ViewBag.total');" class="btn btn-apply-promo">Áp dụng</button>
+                                        </div>
+                                        <div>
+                                            <i style="color:#999999;font-size:12px;">@item.Code</i>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="submit-area">
+                            <input onclick="showPaymentModal(event);" type="submit" class="btn-booking" value="ĐẶT HÀNG" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preloader -->
+            <div class="wrapperanimate" id="pre-loader">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+            </div>
+</body>
+</html>
+
+<!-- Modal payment method -->
+
+<div id="paymentModal" class="modal hide">
+    <div class="modal__overlay"></div>
+    <div class="modal__body">
+        <!-- Register form -->
+        <div class="choose_payment-popup">
+            <div class="choose-payment__container">
+                <div class="choose-payment__header">
+                    <div class="modal__close" onclick="closePaymentModal(event)">
+                        <i class="fa fa-close"></i>
+                    </div>
+                    <span class="choose-payment__heading">VUI LÒNG CHỌN PHƯƠNG THỨC THANH TOÁN </span>
+                </div>
+                <div class="choose-payment__body">
+                    <div class="choose-payment-wrapper">
+                        <div class="paypal-area">
+                            <form method="post" action="@ViewBag.PostUrl">
+
+                                <input type="hidden" name="return" value="@ViewBag.ReturnUrl" />
+                                <input type="hidden" name="business" value="@ViewBag.Business" />
+                                <input type="hidden" name="cmd" value="_cart" />
+                                <input type="hidden" name="upload" value="1" />
+
+                                @{ double total = 0;}
+                                @foreach (var item in ViewBag.products)
+                                {
+                                    { total += item.quantity * item.price; }
+                                }
+
+                                <input type="hidden" value="01" name="item_number_1" />
+                                <input type="hidden" value="Cart" name="item_name_1" />
+                                <input type="hidden" value="@ViewBag.total" class="total-cart-paid" name="amount_1" />
+                                <input type="hidden" value="1" name="quantity_1" />
+
+
+                                <button type="submit" class="btn-paypal-gateway">
+                                    <span>Thanh toán với</span><span style="color: #023189;"> <i>Pay</i></span><span style="color: #029CDD;"> <i>Pal</i></span>
+                                </button>
+                            </form>
+                        </div>
+
+                        @*<a asp-area="customer" asp-controller="cart" asp-action="cod">
+                            <div class="cod-area">
+                                Thanh toán khi nhận hàng
+                            </div>
+                        </a>*@
+                        <form method="post" asp-area="customer" asp-controller="cart" asp-action="cod">
+                            <input type="hidden" value="@ViewBag.total" name="total" class="total-cart-paid" />
+                            <input class="cod-area" type="submit" value="Thanh toán khi nhận hàng" />
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    loadShippingInfo();
+</script>

@@ -1,0 +1,248 @@
+﻿@model ElectronicCommerce.Models.OrderProduct;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+@*
+    Date picker
+*@
+<link rel="stylesheet" href="~/admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+<script src="~/admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js" defer></script>
+
+@*
+    Select 2
+*@
+
+<link rel="stylesheet" href="~/admin/vendors/select2/select2.min.css" />
+<script src="~/admin/vendors/select2/select2.min.js" defer></script>
+
+
+<style>
+    #date_filter {
+        padding: 30px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #444444;
+        cursor: pointer;
+    }
+
+    #wait_for_admin_cancel_confirm {
+        padding: 30px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #000000;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .confirm_cancel {
+        border: 1px solid #000000;
+        font-size: 0.875rem;
+        color: #FFFFFF;
+        padding: 5px 5px;
+        background-color: #000000;
+        text-decoration: none;
+    }
+
+        .confirm_cancel:hover {
+            opacity: 0.8;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+    .confirm_order {
+        border: 1px solid #28A745;
+        font-size: 0.875rem;
+        color: #FFFFFF;
+        padding: 5px 5px;
+        background-color: #28A745;
+        text-decoration: none;
+    }
+
+        .confirm_order:hover {
+            opacity: 0.8;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+    .confirm_deli {
+        border: 1px solid #1A83B8;
+        font-size: 0.875rem;
+        color: #FFFFFF;
+        padding: 5px 5px;
+        background-color: #1A83B8;
+        text-decoration: none;
+    }
+
+        .confirm_deli:hover {
+            opacity: 0.8;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+    .confirm_done {
+        border: 1px solid #A2BF55;
+        font-size: 0.875rem;
+        color: #FFFFFF;
+        padding: 5px 5px;
+        background-color: #A2BF55;
+        text-decoration: none;
+    }
+
+        .confirm_done:hover {
+            opacity: 0.8;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+</style>
+
+<script>$(document).ready(function () {
+        $('.datepicker').datepicker({
+            setDate: new Date(),
+            format: 'dd/mm/yyyy',
+            todayHighlight: true,
+            autoclose: true,
+        });
+        $('.datepicker_from').datepicker({
+            setDate: new Date(),
+            format: 'dd/mm/yyyy',
+            todayHighlight: true,
+            autoclose: true,
+        });
+        $('.datepicker_to').datepicker({
+            format: 'dd/mm/yyyy',
+            todayHighlight: true,
+            autoclose: true,
+
+        });
+
+        // Click open filter modal
+        $('#date_filter').click(function () {
+            $('#filter_order_date').modal('show');
+        });
+
+        // select 2
+
+        $('#status_filter').select2();
+
+
+    });
+
+    // Hien thi danh sach cac don cho duoc huy
+
+    $('#wait_for_admin_cancel_confirm').click(function () {
+
+    });</script>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-md-6" style="padding:20px;">
+                    <a asp-area="admin" asp-controller="order" asp-action="index">Xem tất cả</a>
+
+                    <span id="date_filter"><i class="fa fa-filter"></i> Bộ lọc thời gian</span>
+                </div>
+                <div class="col-md-6" style="padding:15px;">
+                    <form method="post" asp-area="admin" asp-controller="order" asp-action="filterByOrderStatus">
+                        <select style="width:220px; float:right;" class="js-example-basic-single form-control select2-single" name="order_status" onchange="document.getElementById('btnSubmit').click();" id="status_filter">
+                            <option selected value="">Xem trạng thái đơn hàng</option>
+                            <option value="Chờ xác nhận">Đơn chờ xác nhận</option>
+                            <option value="Đã xác nhận">Đơn đã xác nhận</option>
+                            <option value="Đã yêu cầu huỷ đơn">Đơn chờ huỷ</option>
+                            <option value="Đã huỷ đơn">Đơn đã huỷ</option>
+                            <option value="Đang giao hàng">Đơn đang giao</option>
+                            <option value="Đã giao hàng">Đơn đã giao</option>
+                        </select>
+                        <input id="btnSubmit" hidden type="submit" value="submit" />
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="create-new-access d-flex flex-row-reverse">
+                    </div>
+                    <div class="table-responsive" style="width:100%;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>NGÀY TẠO</th>
+                                    <th>ĐỊA CHỈ GIAO NHẬN </th>
+                                    <th>TRẠNG THÁI THANH TOÁN</th>
+                                    <th>TRẠNG THÁI ĐƠN HÀNG</th>
+                                    <th>MÃ KHUYẾN MÃI</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.orders)
+                                {
+                                <tr>
+                                    <td>@item.DateCreated.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.AddressDelivery</td>
+                                    <td>@item.PayType</td>
+                                    @if (item.OrderState == "Đã yêu cầu huỷ đơn")
+                                    {
+                                        <td>@item.OrderState <a class="confirm_cancel" asp-area="admin" asp-controller="order" asp-action="confirmCancel" asp-route-id="@item.Id">Duyệt <i class="fa fa-trash"></i></a></td>
+                                    }
+                                    else if (item.OrderState == "Chờ xác nhận")
+                                    {
+                                        <td>@item.OrderState <a class="confirm_order" asp-area="admin" asp-controller="order" asp-action="confirmOrder" asp-route-id="@item.Id">Duyệt <i class="fa fa-check"></i></a></td>
+                                    }
+                                    else if (item.OrderState == "Đã xác nhận")
+                                    {
+                                        <td>@item.OrderState <a class="confirm_deli" asp-area="admin" asp-controller="order" asp-action="confirmDeli" asp-route-id="@item.Id">Duyệt <i class="fa fa-truck"></i></a></td>
+                                    }
+                                    else if (item.OrderState == "Đang giao hàng")
+                                    {
+                                        <td>@item.OrderState <a class="confirm_done" asp-area="admin" asp-controller="order" asp-action="confirmDone" asp-route-id="@item.Id">Duyệt <i class="fa fa-check"></i></a></td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.OrderState</td>
+                                    }
+                                    <td>@item.PromotionId</td>
+                                    <td><a class="btn btn-info">Xem chi tiết</a></td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal filter cac hoa don tu ngay may den ngay may -->
+
+<div class="modal fade" id="filter_order_date" tabindex="-1" aria-labelledby="ModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Chọn quãng thời gian cần lọc</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form method="post" asp-area="admin" asp-controller="order" asp-action="filterOrderByDate">
+                <div class="modal-body">
+                    <div class="card-body">
+                        <p class="card-description">Định dạng tìm kiếm sẽ theo mẫu: ngày/tháng/năm</p>
+                        <div class="input-group input-daterange d-flex align-items-center">
+                            <input type="text" class="form-control datepicker_from" name="start_date" id="start_date_filter" value="dd/MM/yyyy">
+                            <div class="input-group-addon mx-4">tới</div>
+                            <input type="text" class="form-control datepicker_to" name="end_date" id="end_date_filter" value="dd/MM/yyyy">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Áp dụng bộ lọc</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

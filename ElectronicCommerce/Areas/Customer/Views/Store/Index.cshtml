@@ -1,0 +1,316 @@
+﻿@{
+    Layout = "~/Areas/Customer/Views/Shared/_CustomerLayout.cshtml";
+}
+<div id="vnt-content">
+    <div id="vnt-store">
+        <div class="vnt-title wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+            <h1>Hệ Thống Cửa Hàng</h1>
+        </div>
+        <div class="store_filter wow fadeInUp" data-wow-delay="0.7s" style="visibility: visible; animation-delay: 0.7s; animation-name: fadeInUp;">
+            <form action="https://ijc.vn/vn/cua-hang.html/" method="get">
+                <select id="city" name="city" class="load_state" data-state="state" onchange="submit();"><option value="">--- Chọn Thành phố ---</option><option value="1">Hà Nội</option><option value="2">TP.Hồ Chí Minh</option><option value="5">Cần Thơ</option><option value="51">Bình Dương</option><option value="56">Đồng Nai</option><option value="60">Bà Rịa - Vũng Tàu</option><option value="36">Nghệ An</option><option value="50">Lâm Đồng</option></select>
+                <select id="state" name="state" onchange="submit();">&lt;<option value="">--- Chọn Quận/Huyện ---</option></select>
+                <!--<input type="text" placeholder="Nhập tên cửa hàng cần tìm ..."  name="key_search" id="key_search"  autocomplete="off" value="" >
+                <button type="submit" class="btn-submit-search" value=""><span>Tìm kiếm</span></button>-->
+            </form>
+        </div>
+
+
+
+        <div class="store_wrapper">
+
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/59/ijc-thuan-an.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_CME_7417.jpg" alt="IJC THUẬN AN"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/59/ijc-thuan-an.html">
+                            <span>IJC THUẬN AN</span>
+                        </a>
+                        <div class="i-address">
+                            Ô1, Lô DC36 – KDC Vietsing, KP4, Đường D1, P. An Phú, TP. Thuận An, Bình Dương
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/59/ijc-thuan-an.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/58/ijc-mb-bank-binh-duong.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_DEE_7044.jpg" alt="IJC MB BANK BÌNH DƯƠNG"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/58/ijc-mb-bank-binh-duong.html">
+                            <span>IJC MB BANK BÌNH DƯƠNG</span>
+                        </a>
+                        <div class="i-address">
+                            306 Đại lộ Bình Dương, P. Phú Hòa, TP. Thủ Dầu Một, Bình Dương
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/58/ijc-mb-bank-binh-duong.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/57/ijc-lotte-mart-quan-11.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_showroom_ijc_lotte_mart_quan_11.jpg" alt="IJC LOTTE MART QUẬN 11"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/57/ijc-lotte-mart-quan-11.html">
+                            <span>IJC LOTTE MART QUẬN 11</span>
+                        </a>
+                        <div class="i-address">
+                            968 Đường 3/2, P. 15, Q. 11, TP. Hồ Chí Minh
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/57/ijc-lotte-mart-quan-11.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/56/ijc-long-khanh.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_showroom_ijc_long_khanh.jpg" alt="IJC LONG KHÁNH"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/56/ijc-long-khanh.html">
+                            <span>IJC LONG KHÁNH</span>
+                        </a>
+                        <div class="i-address">
+                            145 Hùng Vương, Khu phố 1, P. Xuân Hòa, TP. Long Khánh, Đồng Nai
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/56/ijc-long-khanh.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/55/ijc-one-bank-le-loi.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_06.jpg" alt="IJC ONE BANK LÊ LỢI"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/55/ijc-one-bank-le-loi.html">
+                            <span>IJC ONE BANK LÊ LỢI</span>
+                        </a>
+                        <div class="i-address">
+                            38 Lê Lợi, P. Bến Nghé, Q. 1, TP. Hồ Chí Minh
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/55/ijc-one-bank-le-loi.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/54/ijc-royal-tower-can-tho.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_15_showroom_ijc_moi.jpg" alt="IJC ROYAL TOWER CẦN THƠ"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/54/ijc-royal-tower-can-tho.html">
+                            <span>IJC ROYAL TOWER CẦN THƠ</span>
+                        </a>
+                        <div class="i-address">
+                            03A Quang Trung, KDC Hưng Phú 1, P. Hưng Phú, Q. Cái Răng, TP. Cần Thơ
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/54/ijc-royal-tower-can-tho.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/53/ijc-cau-giay.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_33.jpg" alt="IJC CẦU GIẤY"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/53/ijc-cau-giay.html">
+                            <span>IJC CẦU GIẤY</span>
+                        </a>
+                        <div class="i-address">
+                            243 Cầu Giấy, P. Dịch Vọng, Q. Cầu Giấy, TP. Hà Nội
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/53/ijc-cau-giay.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/52/ijc-charm-club-thu-dau-mot.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_22.jpg" alt="IJC CHARM CLUB THỦ DẦU MỘT"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/52/ijc-charm-club-thu-dau-mot.html">
+                            <span>IJC CHARM CLUB THỦ DẦU MỘT</span>
+                        </a>
+                        <div class="i-address">
+                            371 Đại lộ Bình Dương, P. Chánh Nghĩa, TP. Thủ Dầu Một, Bình Dương
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/52/ijc-charm-club-thu-dau-mot.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/51/ijc-lotte-mart-vinh.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_27.jpg" alt="IJC LOTTE MART VINH"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/51/ijc-lotte-mart-vinh.html">
+                            <span>IJC LOTTE MART VINH</span>
+                        </a>
+                        <div class="i-address">
+                            Đại lộ V.I-Lenin, Khối Yên Sơn, P. Hà Huy Tập, TP. Vinh, Nghệ An
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/51/ijc-lotte-mart-vinh.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/50/ijc-hai-ba-trung.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_IJC_Hai_Ba_Trung_min.png" alt="IJC HAI BÀ TRƯNG"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/50/ijc-hai-ba-trung.html">
+                            <span>IJC HAI BÀ TRƯNG</span>
+                        </a>
+                        <div class="i-address">
+                            339 Hai Bà Trưng, P. Võ Thị Sáu, Q. 3, TP. Hồ Chí Minh
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/50/ijc-hai-ba-trung.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/49/ijc-da-lat.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_17.jpg" alt="IJC ĐÀ LẠT"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/49/ijc-da-lat.html">
+                            <span>IJC ĐÀ LẠT</span>
+                        </a>
+                        <div class="i-address">
+                            65 đường 3/2, P. 1, TP. Đà Lạt, Lâm Đồng
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/49/ijc-da-lat.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/48/ijc-one-bank-tra-noc-can-tho.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_29.jpg" alt="IJC ONE BANK TRÀ NÓC CẦN THƠ"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/48/ijc-one-bank-tra-noc-can-tho.html">
+                            <span>IJC ONE BANK TRÀ NÓC CẦN THƠ</span>
+                        </a>
+                        <div class="i-address">
+                            Số 37/8B Lê Hồng Phong, P. Trà Nóc, Q. Bình Thủy, TP. Cần Thơ
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/48/ijc-one-bank-tra-noc-can-tho.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/47/ijc-nam-a-thot-not-can-tho.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_05.jpg" alt="IJC NAM Á THỐT NỐT CẦN THƠ"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/47/ijc-nam-a-thot-not-can-tho.html">
+                            <span>IJC NAM Á THỐT NỐT CẦN THƠ</span>
+                        </a>
+                        <div class="i-address">
+                            Số 206 Quốc lộ 91, khu vực Phụng Thạnh 1, P. Thốt Nốt, Q. Thốt Nốt, TP. Cần Thơ
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/47/ijc-nam-a-thot-not-can-tho.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/46/ijc-nam-a-nguyen-van-cu.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_04.jpg" alt="IJC NAM Á NGUYỄN VĂN CỪ CẦN THƠ"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/46/ijc-nam-a-nguyen-van-cu.html">
+                            <span>IJC NAM Á NGUYỄN VĂN CỪ CẦN THƠ</span>
+                        </a>
+                        <div class="i-address">
+                            230 Nguyễn Văn Cừ, P. An Hòa, Q. Ninh Kiều, TP. Cần Thơ
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/46/ijc-nam-a-nguyen-van-cu.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_box wow fadeInUp" data-wow-delay="0.3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
+                <div class="item">
+                    <div class="img">
+                        <a href="https://ijc.vn/vn/cua-hang/45/ijc-one-bank-phu-hoa-binh-duong.html"><img src="https://ijc.vn/vnt_upload/dealer/thumbs/900_crop_frame_cua_hang_14.jpg" alt="IJC ONE BANK PHÚ HÒA BÌNH DƯƠNG"></a>
+                    </div>
+                    <div class="location">
+                        <a href="https://ijc.vn/vn/cua-hang/45/ijc-one-bank-phu-hoa-binh-duong.html">
+                            <span>IJC ONE BANK PHÚ HÒA BÌNH DƯƠNG</span>
+                        </a>
+                        <div class="i-address">
+                            Lô B2 Ô 42, tờ bản đồ số 55, P. Phú Hòa, TP. Thủ Dầu Một, Bình Dương
+                        </div>
+                        <div class="viewall text-center">
+                            <a href="https://ijc.vn/vn/cua-hang/45/ijc-one-bank-phu-hoa-binh-duong.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="pagination text-center"><ul> <li><span class="pagecur">1</span></li><li><a href="https://ijc.vn/vn/cua-hang.html/?p=2" class="pagelink">2</a></li><li><a href="https://ijc.vn/vn/cua-hang.html/?p=3" class="pagelink">3</a></li><li><a href="https://ijc.vn/vn/cua-hang.html/?p=4" class="pagelink">4</a></li><li><a href="https://ijc.vn/vn/cua-hang.html/?p=2" class="btnPage"><i class="fa fa-angle-right"></i></a></li></ul></div>
+    </div>
+    <div class="clear"></div>
+</div>

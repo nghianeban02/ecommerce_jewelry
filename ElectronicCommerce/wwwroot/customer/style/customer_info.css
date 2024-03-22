@@ -1,0 +1,479 @@
+﻿.booking__wrapper-container {
+    height: 1645px;
+    width: 1220px;
+    background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.header__title {
+    font-size: 22px;
+    font-weight: bolder;
+    position: relative;
+}
+
+.booking__information-container {
+    width: 753px;
+    height: 1365px;
+    padding-left: 10px;
+    padding-right: 50px;
+    margin-bottom: 30px;
+}
+
+.header__title::after {
+    content: '';
+    border: 0.5px solid #CCCCCC;
+    width: 100%;
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+}
+
+.area__wrapper {
+    width: 753px;
+    height: 60px;
+    border: 1px solid #E5E5E5;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+}
+
+    .area__wrapper span {
+        color: #767676;
+        font-size: 13px;
+        display: block;
+    }
+
+.name__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.full_name {
+    border: 1px solid #E5E5E5;
+    width: 365px;
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    float: left;
+    padding-top: 20px;
+    position: relative;
+}
+
+    .full_name span {
+        position: absolute;
+        color: #767676;
+        display: block;
+        font-size: 13px;
+        top: 20px;
+        transition: top linear 0.1s;
+        z-index: 3;
+    }
+
+    .full_name input {
+        position: absolute;
+        width: 350px;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        padding-top: 20px;
+        padding-left: 10px;
+        font-size: 13px;
+    }
+
+        .full_name input:hover {
+            border: 1px solid #333;
+        }
+
+        .full_name input:focus {
+            outline: none;
+        }
+
+        .full_name input[type=text]:focus ~ span {
+            top: 10px;
+        }
+
+    .full_name:has( > input[type=text]:focus) {
+        border: 1px solid #333;
+    }
+
+        .full_name:has( > input[type=text]:focus):hover {
+            border: 0px;
+        }
+
+    .full_name input[type=text]:not(:focus):valid ~ span {
+        top: 10px;
+    }
+
+.customer_mail {
+    border: 1px solid #E5E5E5;
+    width: 365px;
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    float: left;
+    padding-top: 20px;
+    position: relative;
+}
+
+    .customer_mail span {
+        position: absolute;
+        color: #767676;
+        display: block;
+        font-size: 13px;
+        top: 20px;
+        transition: top linear 0.1s;
+        z-index: 3;
+    }
+
+    .customer_mail input {
+        position: absolute;
+        width: 350px;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        padding-top: 20px;
+        padding-left: 10px;
+        font-size: 13px;
+    }
+
+        .customer_mail input:hover {
+            border: 1px solid #333;
+        }
+
+        .customer_mail input:focus {
+            outline: none;
+        }
+
+        .customer_mail input[type=text]:focus ~ span {
+            top: 10px;
+        }
+
+    .customer_mail:has( > input[type=text]:focus) {
+        border: 1px solid #333;
+    }
+
+        .customer_mail:has( > input[type=text]:focus):hover {
+            border: 0px;
+        }
+
+    .customer_mail input[type=text]:not(:focus):valid ~ span {
+        top: 10px;
+    }
+
+
+
+.phone__wrapper {
+    width: 753px;
+    height: 60px;
+    border: 1px solid #E5E5E5;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+    .phone__wrapper .zip__code {
+        display: flex;
+        width: 81px;
+        height: 60px;
+        left: 0;
+        top: 0;
+        border-right: 1px solid #E5E5E5;
+        position: absolute;
+    }
+
+        .phone__wrapper .zip__code span {
+            color: #767676;
+            font-size: 13px;
+            margin: auto;
+        }
+
+.phone__wrapper-box {
+    position: absolute;
+    top: -1px;
+    left: 81px;
+    right: 0;
+    bottom: 0;
+    width: 672px;
+}
+
+.phone__wrapper-txb {
+    width: 672px;
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    position: relative;
+}
+
+    .phone__wrapper-txb span {
+        position: absolute;
+        color: #767676;
+        display: block;
+        font-size: 13px;
+        top: 20px;
+        transition: top linear 0.1s;
+        z-index: 3;
+    }
+
+    .phone__wrapper-txb input {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        padding-top: 20px;
+        padding-left: 10px;
+        font-size: 13px;
+    }
+
+        .phone__wrapper-txb input:hover {
+            border: 1px solid #333;
+        }
+
+        .phone__wrapper-txb input:focus {
+            outline: none;
+        }
+
+        .phone__wrapper-txb input[type=text]:focus ~ span {
+            top: 10px;
+        }
+
+    .phone__wrapper-txb:has( > input[type=text]:focus) {
+        border: 1px solid #333;
+    }
+
+        .phone__wrapper-txb:has( > input[type=text]:focus):hover {
+            border: 0px;
+        }
+
+    .phone__wrapper-txb input[type=text]:not(:focus):valid ~ span {
+        top: 10px;
+    }
+
+.address__wrapper {
+    width: 753px;
+    height: 70px;
+    border: 1px solid #E5E5E5;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+    .address__wrapper .address_title {
+        position: absolute;
+        color: #767676;
+        display: block;
+        font-size: 13px;
+        top: 10px;
+    }
+
+    .address__wrapper textarea {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        padding-top: 30px;
+        padding-left: 10px;
+        font-size: 13px;
+        color: #333;
+    }
+
+        .address__wrapper textarea:hover {
+            border: 1px solid #333;
+        }
+
+        .address__wrapper textarea:focus {
+            outline: none;
+            border: 1px solid #333;
+        }
+
+.policy__wrapper {
+    width: 753px;
+    display: block;
+    height: 30px;
+}
+
+    .policy__wrapper a {
+        font-size: 12px;
+        color: #767676;
+        float: right;
+        margin-left: 20px;
+    }
+.btn-confirm-information {
+    width: 220px;
+    height: 52px;
+    outline: none;
+    color: #333;
+    font-size: 20px;
+    font-weight: bolder;
+    border: 1px solid #000000;
+    box-sizing: unset;
+    padding: 0;
+}
+
+.btn-confirm-information:hover {
+    background-color:#000000;
+    color:#FFFFFF;
+    cursor:pointer;
+}
+
+
+.idcard-dob__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.idcard{
+    border: 1px solid #E5E5E5;
+    width: 365px;
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    float: left;
+    padding-top: 20px;
+    position: relative;
+}
+
+    .idcard span {
+        position: absolute;
+        color: #767676;
+        display: block;
+        font-size: 13px;
+        top: 20px;
+        transition: top linear 0.1s;
+        z-index: 3;
+    }
+
+    .idcard input {
+        position: absolute;
+        width: 350px;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        padding-top: 20px;
+        padding-left: 10px;
+        font-size: 13px;
+    }
+
+        .idcard input:hover {
+            border: 1px solid #333;
+        }
+
+        .idcard input:focus {
+            outline: none;
+        }
+
+        .idcard input[type=text]:focus ~ span {
+            top: 10px;
+        }
+
+    .idcard:has( > input[type=text]:focus) {
+        border: 1px solid #333;
+    }
+
+        .idcard:has( > input[type=text]:focus):hover {
+            border: 0px;
+        }
+
+    .idcard input[type=text]:not(:focus):valid ~ span {
+        top: 10px;
+    }
+
+.dob {
+    border: 1px solid #E5E5E5;
+    width: 365px;
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    float: left;
+    padding-top: 20px;
+    position: relative;
+}
+
+    .dob span {
+        position: absolute;
+        color: #767676;
+        display: block;
+        font-size: 13px;
+        top: 20px;
+        transition: top linear 0.1s;
+        z-index: 3;
+    }
+
+    .dob input {
+        position: absolute;
+        width: 350px;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: transparent;
+        padding-top: 20px;
+        padding-left: 10px;
+        font-size: 13px;
+    }
+
+        .dob input:hover {
+            border: 1px solid #333;
+        }
+
+        .dob input:focus {
+            outline: none;
+        }
+
+        .dob input[type=text]:focus ~ span {
+            top: 10px;
+        }
+
+    .dob:has( > input[type=text]:focus) {
+        border: 1px solid #333;
+    }
+
+        .dob:has( > input[type=text]:focus):hover {
+            border: 0px;
+        }
+
+    .dob input[type=text]:not(:focus):valid ~ span {
+        top: 10px;
+    }

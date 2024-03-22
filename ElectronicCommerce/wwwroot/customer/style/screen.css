@@ -1,0 +1,197 @@
+﻿/* -- Imported styles ----------------------------- */
+
+@import url("global.css");
+@import url("box.css");
+@import url("style.css");
+@import url("iconmoon/style.css");
+@import url("vhstyle.css");
+/*@import url("../../../vnt_upload/ckeditor/ck_style.css");*/
+
+.itemproductall .ribbon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: inline-block;
+    pointer-events: none;
+}
+
+    .itemproductall .ribbon .rib {
+        text-align: left;
+    }
+
+    .itemproductall .ribbon .riwrap {
+        display: inline-block;
+        margin-bottom: 5px;
+        color: #fff;
+        border-radius: 3px;
+        padding: 2px 5px;
+        background-color: #d7c8a7;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+.slbannerhome .item .bg a {
+    display: block;
+}
+
+.langPage {
+    position: relative;
+}
+
+    .langPage .showpop {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 45px;
+    }
+
+    .langPage.active .showpop {
+    }
+
+    .langPage .showpop span {
+        display: block;
+        width: 25px;
+        height: 17px;
+    }
+
+    .langPage .popupLang {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #fff;
+        width: 140px;
+        padding: 10px 0;
+    }
+
+        .langPage .popupLang li {
+            display: block;
+        }
+
+            .langPage .popupLang li.active a {
+                background-color: #e8ce60;
+            }
+
+            .langPage .popupLang li a {
+                display: flex;
+                align-items: center;
+                align-content: center;
+                padding: 7px 15px;
+                font-size: 13px;
+                line-height: 21px;
+            }
+
+                .langPage .popupLang li a img {
+                    display: block;
+                    width: 25px;
+                    margin-right: 10px;
+                }
+
+    .langPage.active .popupLang {
+        opacity: 1;
+        visibility: initial;
+        pointer-events: auto;
+    }
+
+
+.vhheadmeni .colr {
+    width: 200px !important;
+}
+
+.languageTop {
+    margin-left: 0px;
+}
+
+    .languageTop > ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+    }
+
+        .languageTop > ul > li {
+            margin-right: 15px;
+            position: relative;
+        }
+
+            .languageTop > ul > li:last-child {
+                margin-right: 0;
+            }
+
+            .languageTop > ul > li::before {
+                content: '|';
+                color: #333333;
+                position: absolute;
+                right: -11px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 12px;
+                -webkit-transition: all 0.3s linear;
+                -o-transition: all 0.3s linear;
+                transition: all 0.3s linear;
+            }
+
+            .languageTop > ul > li:last-child:before {
+                display: none;
+            }
+
+        .languageTop > ul li a {
+            color: #333333;
+            text-transform: uppercase;
+        }
+
+        .languageTop > ul li.active a {
+            font-weight: bold;
+        }
+
+
+.list-birthday {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    align-items: flex-end;
+    margin: 0 -5px;
+}
+
+    .list-birthday > div {
+        width: 33.3333367%;
+        padding: 0 5px;
+    }
+
+    .list-birthday .div_input em {
+        display: none !important;
+    }
+
+    .list-birthday .has-feedback .form-control {
+        padding-right: 15px !important;
+    }
+
+@media (max-width: 991px) {
+    .grmainheadmb .coll {
+        width: calc(100% - 210px);
+    }
+
+    .grmainheadmb .colr {
+        width: 210px;
+    }
+}
+
+@media (max-width: 768px) {
+    #vnt-store-detail #vnt-store-slide .item .img {
+        background-size: cover;
+    }
+
+    .languageTop {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 569px) {
+    .vhformpt .grformpt .colgr {
+        width: 100% !important;
+    }
+}

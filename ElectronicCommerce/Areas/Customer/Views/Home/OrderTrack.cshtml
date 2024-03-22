@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "~/Areas/Customer/Views/Shared/_CustomerLayout.cshtml";
+}
+<link rel="stylesheet" href="~/customer/style/order-track.css"/>
+<div id="vnt-content" style="margin-bottom : 10rem">
+    <div id="vnt-product-c2">
+        <div class="boxproduct">
+            <div class="vhpadding-lg-top-40 vhpadding-lg-bottom-50" style="min-height:260px;">
+                <div class="vhformpt">
+                    <div class="wrapper">
+                        <form method="post">
+                            <div class="order-track-form">
+                                <div class="order_id">
+                                    @if (ViewBag.order != null)
+                                    {
+                                        <input type="text" name="order_id" value="@ViewBag.order.Id" required />
+                                    }
+                                    else
+                                    {
+                                        <input type="text" name="order_id" required />
+                                    }
+                                    <span class="full_name-holder">Mã đơn hàng*</span>
+                                </div>
+                                <input type="submit" asp-area="customer" asp-controller="home" asp-action="OrderTrack" id="find-order-status" value="Xem trạng thái đơn hàng" />
+                            </div>
+                        </form>
+                        <hr />
+                        <table class="table" style="margin-bottom : 2rem">
+                            <tr>
+                                <td>*Ngày tạo</td>
+                                <td>*Địa chỉ giao hàng</td>
+                                <td>*Ngày thanh toán</td>
+                                <td>*Thanh toán qua</td>
+                                <td>*Tổng tiền khách trả</td>
+                                <td>*Tổng tiền đơn hàng</td>
+                            </tr>
+                            @if (ViewBag.order != null)
+                            {
+                            <tr style="color:#999999;">
+                                <td>@ViewBag.order.DateCreated.ToString("dd/MM/yyyy")</td>
+                                <td>@ViewBag.order.AddressDelivery</td>
+                                <td>@ViewBag.order.DatePay.ToString("dd/MM/yyyy")</td>
+                                <td>@ViewBag.order.PayType</td>
+                                <td style="padding-left:20px;">@ViewBag.order.Pay$</td>
+                                <td style="padding-left: 20px;">@ViewBag.order.TotalPay$</td>
+                            </tr>
+                            }
+                        </table>
+                        <table class="table">
+                            <tr>
+                                <td>*Trạng thái đơn hàng</td>
+                                <td>*Số điện thoại nhận hàng</td>
+                                <td>*Tên khách hàng</td>
+                                <td>*Ngày giao hàng</td>
+                                <td>*Phí giao hàng</td>
+                                <td>*Mail liên lạc</td>
+                            </tr>
+                            @if (ViewBag.order != null)
+                            {
+                            <tr style="color:#999999;">
+                                <td>@ViewBag.order.OrderState</td>
+                                <td>@ViewBag.order.PhoneNonAccount</td>
+                                <td>@ViewBag.order.NameCusNonAccount</td>
+                                <td>
+                                    @if(ViewBag.order.ShipDate !=null)
+                                    {
+                                        @ViewBag.order.ShipDate.ToString("dd/MM/yyyy");
+                                    } else
+                                    {
+                                        @("Chưa xác định");
+                                    }
+                                </td>
+                                <td>@ViewBag.order.ShipFee$</td>
+                                <td>@ViewBag.order.MailNonCus</td>
+                            </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link rel="stylesheet" href="~/customer/style/success-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SCRIPT JS-->
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header__wrapper">
+            <div style="display: flex;">
+                <div class="header__logo">
+                    <img src="~/customer/img/hnjcart.svg" alt="" class="logo" width="120" height="36">
+                </div>
+                <div class="header__wrapper-title">
+                    <span><i class="fa-sharp fa-solid fa-lock" style="font-size: 20px; margin-left: 4px;"></i></span>
+                    <span style="font-size:12px;">THANH TOÁN AN TOÀN</span>
+                </div>
+            </div>
+            <div class="header__continue-wrapper">
+                <a href="http://localhost:5000" class="header__continue-sale">
+                    TIẾP TỤC MUA SẮM
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="cart__container">
+        <div class="cart__wrapper">
+            <div class="process__wrapper">
+                <span>Giỏ hàng</span>
+                <span>Đặt hàng</span>
+                <span>Trả tiền</span>
+                <span style="color:#333;font-weight:600;">Hoàn thành đơn hàng</span>
+            </div>
+
+            <div class="success-container">
+                <div class="success-wrapper">
+                    <div class="success-notify">
+                        <div class="success-animation">
+                            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+                        </div>
+                        <h2>Thanh toán thành công</h2>
+                        <p>Bạn đã thực hiện thanh toán thành công qua phương thức thanh toán PayPal</p>
+                        <div class="receipt-paypal-info">
+                            <div class="receipt-paypal-title">
+                                <div class="receipt-paypal-left-corner-title">
+                                    <img width="40" height="40" src="data:image/png;base64,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" />
+                                    <div style="margin-left:6px;">
+                                        <p>Thông tin chi tiết về hoá đơn thanh toán</p>
+                                        <span id="date-checkout"></span>
+                                    </div>
+                                </div>
+                                <span id="total-checkout">- $@ViewBag.totalPay.ToString("#.0")</span>
+                            </div>
+                            <div class="receipt-paypal-detail__wrapper">
+                            <table>
+                                <tr>
+                                    <td><b>Hình thức thanh toán</b></td>
+                                    <td></td>
+                                    <td><b>Đơn vị thụ hưởng</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Số tiền</td>
+                                    <td style="width: 240px !important;text-align:center;">$@ViewBag.totalPay.ToString("#.0")</td>
+                                    <td>
+                                        Doanh nghiệp HNJ
+                                        <br />
+                                        <a href="#">@ViewBag.mailReciever</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Gửi đến</b>
+                                    </td>
+                                    <td></td>
+                                    <td><b>Chi tiết đơn hàng</b></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @ViewBag.shipTo
+                                    </td>
+                                    <td></td>
+                                    <td style="position:relative;">
+                                        @{var total=0;}
+                                        @foreach(var item in ViewBag.carts) {
+                                            <div style="margin-bottom:4px;">
+                                                @item.name x @item.quantity
+                                                <span style="position:absolute; right:0;">$@item.price.ToString("#.0") $</span>
+                                            </div>
+                                            { total += item.price * item.quantity; }
+                                        }
+                                        <hr />
+                                        <span><b>Tổng cộng</b></span>
+                                        <span style="position: absolute; right: 0;">$@total.ToString("#.0")</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mã giao dịch</b></td>
+                                </tr>
+                                <tr>
+                                    <td>@ViewBag.transactionId</td>
+                                    <td></td>
+                                    <td style="position:relative;">
+                                        <a style="position:absolute; text-decoration:none; right:0;" href="#"><i class="fa-solid fa-print"></i>  In hoá đơn</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const d = new Date();
+    document.getElementById("date-checkout").innerHTML = d.toLocaleDateString("vi-VN", options);
+</script>

@@ -1,0 +1,161 @@
+﻿@model ElectronicCommerce.Models.ProductDiscount
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/admin/js/jquery-1.12.4.min.js"></script>
+
+@*
+    Date picker
+*@
+<link rel="stylesheet" href="~/admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+<script src="~/admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js" defer></script>
+
+@*
+    Select 2
+*@
+
+<link rel="stylesheet" href="~/admin/vendors/select2/select2.min.css" />
+<script src="~/admin/vendors/select2/select2.min.js" defer></script>
+
+<script>$(document).ready(function () {
+
+        $('#datepicker').datepicker({
+            setDate: new Date(),
+            format: 'yyyy-mm-dd',
+            todayHighlight: true,
+            autoclose: true,
+        });
+
+        // On change datepicker
+
+        $('#datepicker').datepicker().on('change', function (ev) {
+            var firstDate = $(this).val();
+            console.log(firstDate);
+
+            $('#valid_until').val(firstDate);
+
+        });
+
+        // select 2
+
+        $('.js-example-basic-single').select2();
+    });</script>
+
+<div class="content-wrapper">
+    <div class="row">
+        <h3 style="padding-bottom:20px;">Quản lý khuyến mãi sản phẩm</h3>
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-description"><a class="btn btn-primary" data-toggle="modal" data-target="#addProductDiscount" asp-area="admin" asp-controller="productdiscount" asp-action="add">Thêm khuyến mãi</a></p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Mã khuyến mãi</th>
+                                    <th>Tên</th>
+                                    <th>Trạng thái</th>
+                                    <th>#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var item in ViewBag.productDiscounts)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            @{
+                                                if (item.Active == true)
+                                                {
+                                                    <td>Đang hoạt động</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>Không hoạt động</td>
+                                                }
+                                            }
+                                            <td><a asp-area="admin" asp-controller="productdiscount" asp-action="detail" asp-route-id="@item.Id">Chi tiết</a></td>
+                                        </tr>
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="post" asp-area="admin" asp-controller="productdiscount" asp-action="add">
+        <div class="modal" id="addProductDiscount">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tạo khuyến mãi mới</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                        <label>Tên khuyến mãi</label>
+                        <input type="text" class="form-control" asp-for="Name" name="name" placeholder="Nhập tên phiếu giảm giá">
+                        <br />
+                        <label>Giá trị khuyến mãi (%)</label>
+                        <input type="number" class="form-control" asp-for="DiscountValue" name="discountValue" placeholder="Nhập giá trị giảm giá">
+                        <br />
+                        <label for="datepicker">Hiệu lực đến</label>
+                        <input type="text" class="form-control" id="datepicker" placeholder="Ngày kết thúc">
+                        <input type="date" asp-for="ValidUntil" id="valid_until" style="display:none;" class="form-control">
+                        <br />
+                        <label>Khuyến mãi theo loại mệnh:</label>
+                        <select asp-for="GemId" class="js-example-basic-single form-control select2-single">
+                            <option selected value="" >Chọn loại mệnh</option>
+                            @foreach (var item in ViewBag.geomancies)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                        <br /><br />
+                        <label>Khuyến mãi theo sản phẩm:</label>
+                        <select asp-for="ProductId" class="js-example-basic-single form-control select2-single">
+                            <option selected value="">Chọn loại sản phẩm</option>
+                            @foreach (var item in ViewBag.products)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                        <br /><br />
+                        <label>Khuyến mãi theo loại đá:</label>
+                        <select asp-for="StoneId" class="js-example-basic-single form-control select2-single">
+                            <option selected value="">Chọn loại đá</option>
+                            @foreach (var item in ViewBag.stoneTypes)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Xác nhận">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

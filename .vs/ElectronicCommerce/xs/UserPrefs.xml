@@ -1,0 +1,104 @@
+﻿<Properties StartupConfiguration="{087713A9-5D23-41A3-B7FB-208DA6BD52B1}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="ElectronicCommerce/Areas/Customer/Views/Shared/_CustomerLayout.cshtml">
+    <Files>
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Shared/_CustomerLayout.cshtml" Line="1" Column="1" />
+      <File FileName="ElectronicCommerce/wwwroot/admin/images/logo.svg" />
+      <File FileName="ElectronicCommerce/wwwroot/admin/images/logo-light.svg" />
+      <File FileName="ElectronicCommerce/wwwroot/admin/images/logo-mini.svg" />
+      <File FileName="ElectronicCommerce/Startup.cs" Line="76" Column="1" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminRoleController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Views/Dashboard/Index.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminStoreController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/ViewModels/CommonProductModel.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/ViewModels/CommonPromotionModel.cs" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Controllers/CustomerController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/DashboardController.cs" />
+      <File FileName="ElectronicCommerce/Models/Image.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/ViewModels/GoldPrice.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/ViewModels/RolesModel.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Services/CategoryProductService.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Services/IRoleService.cs" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Services/OrderProductService.cs" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Controllers/CartController.cs" />
+      <File FileName="ElectronicCommerce/Models/OrderProduct.cs" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Services/CustomerService.cs" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Customer/Index.cshtml" />
+      <File FileName="ElectronicCommerce/Models/Cart.cs" />
+      <File FileName="ElectronicCommerce/Models/CategoryProduct.cs" />
+      <File FileName="ElectronicCommerce/PayPal/PayPalService.cs" />
+      <File FileName="ElectronicCommerce/PayPal/PayPalConfig.cs" />
+      <File FileName="ElectronicCommerce/PayPal/PDTHolder.cs" />
+      <File FileName="ElectronicCommerce/appsettings.json" Line="21" Column="14" />
+      <File FileName="ElectronicCommerce/appsettings.Development.json" />
+      <File FileName="ElectronicCommerce/global.json" />
+      <File FileName="ElectronicCommerce/Program.cs" Line="16" Column="1" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Customer/AddReview.cshtml" />
+      <File FileName="ElectronicCommerce/Properties/launchSettings.json" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Controllers/HomeController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Controllers/ProductController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Controllers/StoreController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminUserController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminSaleReportController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminReviewController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminPromotionController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminProductDiscountController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminProductController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Services/StoreService.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Services/UserService.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Services/IStoreService.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Services/ISaleReportService.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminOrderController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Controllers/AdminCategoryProductController.cs" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Services/IOrderProductService.cs" />
+      <File FileName="ElectronicCommerce/Models/PromotionDetail.cs" />
+      <File FileName="ElectronicCommerce/Models/DatabaseContext.cs" />
+      <File FileName="ElectronicCommerce/wwwroot/admin/vendors/ace-builds/src-min/ext-options.js" />
+      <File FileName="ElectronicCommerce/Areas/Admin/Views/AdminProduct/Index.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Cart/BookingPage.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Home/Index.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Home/OrderTrack.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Cart/CartPage.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Cart/CodSuccess.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Cart/PaypalSuccess.cshtml" />
+      <File FileName="ElectronicCommerce/Views/AdminLogin/Login.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Customer/Info.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Customer/Login.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Customer/Order.cshtml" />
+      <File FileName="ElectronicCommerce/Areas/Customer/Views/Product/Detail.cshtml" />
+      <File FileName="ElectronicCommerce/Controllers/AdminLoginController.cs" />
+      <File FileName="ElectronicCommerce/Properties/PublishProfiles/FolderProfile.pubxml" />
+      <File FileName="ElectronicCommerce/Properties/PublishProfiles/FolderProfile 1.pubxml" />
+      <File FileName="ElectronicCommerce/Properties/PublishProfiles/FolderProfile 2.pubxml" />
+      <File FileName="ElectronicCommerce/Properties/PublishProfiles/FolderProfile 4.pubxml" />
+      <File FileName="ElectronicCommerce/ElectronicCommerce.csproj" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ElectronicCommerce" expanded="True">
+            <Node name="ElectronicCommerce">
+              <Node name="Areas" expanded="True">
+                <Node name="Customer" expanded="True">
+                  <Node name="Views" expanded="True">
+                    <Node name="Shared" expanded="True">
+                      <Node name="_CustomerLayout.cshtml" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ElectronicCommerce PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,167 @@
+﻿@{
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+	<div class="row">
+		<h3>Báo cáo doanh thu</h3>
+	</div>
+	<div class="row">
+		<div class="col-md-1.5" style="padding-right:50px;">
+			<label>Thống kê theo</label>
+			<select id="time" class="js-example-basic-single form-control select2-single">
+				<option selected value="">Chọn</option>
+				<option value="thang">Tháng</option>
+				<option value="nam">Năm</option>
+			</select>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<a class="btn btn-primary" data-toggle="modal" data-target="#getReportByOption">Bộ lọc</a>
+	</div>
+
+	<br />
+
+	<div id="dvChart">
+		<canvas id="DoanhThuChart" style="display: block; height: 261px; width: 522px;" width="1044" height="300" class="chartjs-render-monitor"></canvas>
+	</div>
+
+	<div class="modal" id="getReportByOption">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Bộ lọc thống kê doanh thu</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+
+					<label for="batdau">Thời gian bắt đầu:</label>
+					<input type="date" id="batdau" class="form-control">
+					<label for="ketthuc">Thời gian kết thúc:</label>
+					<input type="date" id="ketthuc" class="form-control">
+					
+					<label>Lọc theo hình thức thanh toán:</label>
+					<select id="httt" class="js-example-basic-single form-control select2-single">
+						<option selected value="">Chọn</option>
+						@{
+							foreach(var item in ViewBag.lstHttt)
+							{
+								<option value="@item">@item</option>
+							}
+						}
+					</select>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value="Xác nhận" onclick="handleConfirmation()">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+@section Scripts{
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="~/admin/js/chart.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+		  $('#time').on('change',function(){
+			  var time =$(this).val();
+
+			  $.ajax({
+				  type: 'GET',
+
+				  url: '/admin/salereport/GetReport?time=' + time,
+				  success: function (result) {
+					  RegisterChart(result)
+				  }
+			  });
+		  });
+		  function handleConfirmation() {
+			 var batdau = document.getElementById("batdau").value;
+			 var ketthuc = document.getElementById("ketthuc").value;
+			 var httt = document.getElementById("httt").value;
+			 GetReportByOption(batdau, ketthuc, httt);
+		  }
+
+		  function GetReportList(){
+			   $.ajax({
+				  type: 'GET',
+
+				  url: '/admin/salereport/GetReport?time=' + "thang",
+				  success: function (result) {
+					  RegisterChart(result)
+				  }
+			  });
+		  }
+
+		  function GetReportByOption(batdau, ketthuc, httt) {
+
+				$.ajax({
+				  type: 'GET',
+
+				  url: '/admin/salereport/GetReportByOption',
+				  data: { batdau: batdau, ketthuc: ketthuc , httt: httt},
+				  success: function (result) {
+					  RegisterChart(result)
+				  }
+			  });
+			  $('#getReportByOption').modal('hide');
+		  }
+		  GetReportList();
+
+	  function RegisterChart(lstData){
+		  $("canvas#DoanhThuChart").remove();
+		  $('#dvChart').html('<canvas id="DoanhThuChart" style="display: block; height: 261px; width: 522px;" width="1044" height="300" class="chartjs-render-monitor"></canvas>');
+		  var lstLabel =[];
+		  var lstDataSource = [];
+
+		  $.each(lstData, function (index,item){
+			  lstLabel.push(item.time);
+			  lstDataSource.push(item.tongTien);
+		  });
+		  console.log(lstLabel);
+		  console.log(lstDataSource)
+
+
+	  var barChartCanvas = document.getElementById('DoanhThuChart');
+
+
+	  var data = {
+	  labels: lstLabel,
+	  datasets: [{
+		label: '# Doanh thu',
+		data: lstDataSource,
+		backgroundColor: 'rgba(255, 99, 132, 0.2)',
+		borderColor: 'rgba(255,99,132,1)',
+		borderWidth: 1,
+		fill: false
+	  }]
+	};
+
+
+
+		var DoanhThuChart = new Chart(barChartCanvas, {
+		  type: 'bar',
+		  data: data,
+		  //options: options
+		});
+	  }
+
+
+
+</script>
+}
+

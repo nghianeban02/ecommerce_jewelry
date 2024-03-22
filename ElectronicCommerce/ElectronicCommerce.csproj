@@ -1,0 +1,134 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Areas\" />
+    <None Remove="Areas\Admin\" />
+    <None Remove="Areas\Customer\" />
+    <None Remove="Models\" />
+    <None Remove="Areas\Admin\Controllers\" />
+    <None Remove="Areas\Admin\Views\" />
+    <None Remove="Areas\Customer\Controllers\" />
+    <None Remove="Areas\Customer\Views\" />
+    <None Remove="Areas\Customer\Views\Home\" />
+    <None Remove="Areas\Admin\Views\Dashboard\" />
+    <None Remove="Areas\Admin\Models\" />
+    <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Areas\Customer\Models\" />
+    <None Remove="Areas\Customer\Views\Shared\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" />
+    <None Remove="PagedList.Core.Mvc" />
+    <None Remove="AspNetCoreHero.ToastNotification" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Microsoft.EntityFrameworkCore.SqlServer.Design" />
+    <None Remove="Microsoft.EntityFrameworkCore.Proxies" />
+    <None Remove="Microsoft.Extensions.Configuration.Json" />
+    <None Remove="Repositories\" />
+    <None Remove="Areas\Admin\Views\Role\" />
+    <None Remove="Areas\Admin\Services\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <None Remove="Areas\Admin\Views\AdminUser\" />
+    <None Remove="Areas\Admin\Helpers\" />
+    <None Remove="BCrypt.Net" />
+    <None Remove="BCrypt.Net-Next" />
+    <None Remove="Areas\Customer\Views\Product\" />
+    <None Remove="Areas\Customer\Services\" />
+    <None Remove="Areas\Customer\Views\Cart\" />
+    <None Remove="Stripe.net" />
+    <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <None Remove="Areas\Customer\Views\Customer\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.Google" />
+    <None Remove="Microsoft.Owin.Security.Google" />
+    <None Remove="Microsoft.AspNetCore.CookiePolicy" />
+    <None Remove="Microsoft.AspNetCore.Http" />
+    <None Remove="Areas\Admin\Views\AdminOrder\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.Facebook" />
+    <None Remove="Areas\Admin\Views\AdminReview\" />
+    <None Remove="MiddleWares\" />
+    <None Remove="Controllers\" />
+    <None Remove="Views\" />
+    <None Remove="Views\AdminLogin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Customer\Views\Home\" />
+    <Folder Include="Areas\Admin\Views\Dashboard\" />
+    <Folder Include="wwwroot\customer\style\" />
+    <Folder Include="wwwroot\customer\style\iconmoon\" />
+    <Folder Include="wwwroot\customer\img\" />
+    <Folder Include="Areas\Customer\Models\" />
+    <Folder Include="Areas\Admin\Views\AdminRole\" />
+    <Folder Include="Areas\Admin\Views\AdminUser\" />
+    <Folder Include="Areas\Admin\Helpers\" />
+    <Folder Include="Areas\Customer\Views\Product\" />
+    <Folder Include="wwwroot\customer\modules\" />
+    <Folder Include="wwwroot\customer\modules\product\" />
+    <Folder Include="wwwroot\customer\modules\product\css\" />
+    <Folder Include="wwwroot\customer\js\" />
+    <Folder Include="Areas\Customer\Services\" />
+    <Folder Include="Areas\Customer\Views\Cart\" />
+    <Folder Include="Areas\Customer\Views\Customer\" />
+    <Folder Include="Areas\Admin\Views\AdminOrder\" />
+    <Folder Include="Areas\Admin\Views\AdminReview\" />
+    <Folder Include="MiddleWares\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\AdminLogin\" />
+  </ItemGroup>
+  <ItemGroup>
+	  <Content Remove="Views\Shared\Index.cshtml" />
+	  <Content Remove="Views\_ViewImports.cshtml" />
+    <Content Remove="Areas\Admin\Views\AdminProduct\ProductDetailModalPopUp.cshtml" />
+    <Content Remove="wwwroot\" />
+    <Content Remove="wwwroot\customer\" />
+    <Content Remove="wwwroot\customer\css\" />
+    <Content Remove="wwwroot\customer\style\iconmoon\" />
+    <Content Remove="wwwroot\customer\img\" />
+    <Content Remove="wwwroot\customer\lib\" />
+    <Content Remove="wwwroot\customer\modules\" />
+    <Content Remove="wwwroot\customer\modules\product\" />
+    <Content Remove="wwwroot\customer\modules\product\css\" />
+    <Content Remove="wwwroot\customer\js\" />
+    <Content Remove="wwwroot\admin\" />
+    <Content Remove="Areas\Customer\Views\Product\CartPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Areas\Admin\Views\AdminCategoryProduct\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+    <PackageReference Include="Microsoft.NETCore.DotNetAppHost" Version="7.0.13" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.4" />
+    <PackageReference Include="Microsoft.NETCore.Runtime" Version="1.0.1" />
+    <PackageReference Include="Microsoft.NETCore.Runtime.CoreCLR" Version="2.0.8" />
+    <PackageReference Include="Microsoft.NETCore.Targets" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Owin" Version="4.2.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.17" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.17" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="5.0.17" />
+  </ItemGroup>
+</Project>

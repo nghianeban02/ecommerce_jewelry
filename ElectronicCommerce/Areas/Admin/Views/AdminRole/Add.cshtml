@@ -1,0 +1,54 @@
+﻿@model ElectronicCommerce.Models.Role;
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-6 mb-2 mb-xl-0">
+                    <h3 class="font-weight-bold">Cấp quyền mới</h3>
+                    <form method="post" asp-area="admin" asp-controller="role" asp-action="add">
+                        <div class="form-group">
+                            <label for="role_id">Mã quyền:</label>
+                            <input type="text" class="form-control" asp-for="Id" id="role_id" placeholder="Role_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="role_name">Tên quyền:</label>
+                            <input type="text" class="form-control" asp-for="Name" id="role_name" placeholder="Role_name">
+                        </div>
+                        <input type="submit" class="btn btn-primary me-2" value="Xác nhận">
+                        <button class="btn btn-light">Làm mới</button>
+                    </form>
+                </div>
+                <div class="col-12 col-xl-6 mb-2 mb-xl-0">
+                    <h3 class="font-weight-bold">Danh sách quyền truy cập</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Mã quyền truy cập</th>
+                                    <th>Tên quyền truy cập</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var role in ViewBag.roles)
+                                {
+                                    <tr>
+                                        <td><a asp-area="admin" asp-controller="role" asp-action="update" asp-route-id="@role.Id">Cập nhật</a></td>
+                                        <td>@role.Id</td>
+                                        <td>@role.Name</td>
+                                        <td>
+                                            <a asp-area="admin" asp-controller="role" asp-action="delete" asp-route-id="@role.Id" onclick='return confirm("Bạn có chắc chắn huỷ quyền truy cập này ?")'>Huỷ</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

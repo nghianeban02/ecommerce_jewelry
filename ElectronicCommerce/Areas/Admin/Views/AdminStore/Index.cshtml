@@ -1,0 +1,49 @@
+﻿@model ElectronicCommerce.Models.Store;
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="create-new-access d-flex flex-row-reverse">
+                        <div class="row">
+                            <div class="create-new-access d-flex flex-row-reverse">
+                                <a class="btn btn-primary" data-toggle="modal" data-target="#addStore" asp-area="admin" asp-controller="store" asp-action="add">Tạo phiếu giảm giá</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Tên cơ sở</th>
+                                    <th>Mô tả</th>
+                                    <th>Đia chỉ</th>
+                                    <th>Tỉnh/ Thành phố</th>
+                                    <th>Quận/ Huyện</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var store in ViewBag.Store)
+                                {
+                                    <tr>
+                                        <td>@store.Name</td>
+                                        <td>@store.Description</td>
+                                        <td>@store.Address</td>
+                                        <td>@store.City</td>
+                                        <td>@store.District</td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

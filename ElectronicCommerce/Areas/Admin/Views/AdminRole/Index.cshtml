@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                    <div class="create-new-access d-flex flex-row-reverse">
+                        <a class="btn btn-info" asp-area="admin" asp-controller="role" asp-action="add">Tạo quyền truy cập mới</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Quyền truy cập</th>
+                                    <th>Tổng số lượng nhân viên</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var role in ViewBag.roles)
+                                {
+                                <tr>
+                                    <td>@role.ROLE_NAME</td>
+                                    <td>@role.TOTAL_USER</td>
+                                    <td><a asp-area="admin" asp-controller="user" asp-action="findAllUserByRole" asp-route-id="@role.ID">Xem danh sách nhân viên </a></td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

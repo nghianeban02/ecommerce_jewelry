@@ -1,0 +1,238 @@
+﻿/* Header */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial,Helvetica,sans-serif !important;
+}
+
+header {
+    width: 100%;
+    height: 48px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.header__wrapper {
+    max-width: 1220px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__continue-wrapper {
+    padding-top: 5px;
+}
+
+.header__continue-sale span {
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #999;
+    border-bottom: 4px solid transparent;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-left: 5px;
+}
+
+.header__logo {
+    position: relative;
+}
+
+    .header__logo::after {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 30px;
+        background-color: #ccc;
+        vertical-align: middle;
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+        position: relative;
+        top: -20px;
+        left: -10px;
+    }
+
+.header__wrapper-title {
+    padding-top: 4px;
+    color: #83B393;
+}
+
+.header__continue-sale {
+    font-weight: 200;
+    color: #666666;
+    font-size: 12px;
+    margin-top: 8px;
+    text-decoration: none;
+}
+
+/* Body cart */
+
+.cart__container {
+    background-color: #FFFFFF;
+    height: 1000px;
+}
+
+.cart__wrapper {
+    max-width: 1220px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+}
+
+.process__wrapper {
+    margin-bottom: 40px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+    .process__wrapper span:not(:first-child)::before {
+        content: '>';
+        padding: 0 10px;
+    }
+
+    .process__wrapper span {
+        color: #666666;
+        font-weight: 450;
+        font-size: 16px;
+    }
+
+.success-container {
+    display:flex;
+    height:800px;
+    width:100%;
+}
+
+.success-wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    height:100%;
+    width:1200px;
+}
+
+.success-notify {
+    text-align:center;
+}
+
+.receipt-paypal-info {
+    text-align:left;
+    margin:auto;
+    width:1000px;
+    min-height:350px;
+    border:1px solid #E6E6E6;
+    border-radius:10px;
+    padding:15px;
+    position:relative;
+}
+    .receipt-paypal-info:hover {
+        box-shadow: 0px 0px 5px #999999;
+    }
+.receipt-paypal-info::before {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    content: '';
+    border: 0.5px solid #CCCCCC;
+    width: 100%;
+}
+
+    .receipt-paypal-info p {
+        margin-bottom:5px;
+        margin-top:0px;
+    }
+
+.receipt-paypal-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.receipt-paypal-left-corner-title {
+    display:flex;
+}
+
+#date-checkout {
+    font-size: 14px;
+    color: silver;
+}
+
+#total-checkout {
+    font-weight:bolder;
+    font-size:18px;
+}
+
+.receipt-paypal-detail__wrapper {
+    padding-left:40px;
+    padding-right:20px;
+    margin-top:20px;
+}
+
+.receipt-paypal-detail__wrapper table {
+    width:100%;
+}
+
+.receipt-paypal-detail__wrapper table tr {
+    height:40px;
+}
+
+/* success animation */
+.checkmark {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #4bb71b;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #4bb71b;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    position: relative;
+    top: 5px;
+    right: 5px;
+    margin: 0 auto;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #4bb71b;
+    fill: #fff;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
+}

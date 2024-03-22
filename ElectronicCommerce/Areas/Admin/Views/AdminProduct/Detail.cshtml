@@ -1,0 +1,275 @@
+﻿@model ElectronicCommerce.Areas.Admin.ViewModels.CommonProductModel
+@{
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="~/admin/vendors/mdi/css/materialdesignicons.min.css">
+<div class="content-wrapper">
+
+	<h3 style="color: #4B49AC">@ViewBag.product.Id - @ViewBag.product.Name</h3>
+	<p class="card-description">@ViewBag.product.Cat.Name</p>
+	<div class="table-responsive">
+		<table>
+			<tr>
+				<th>Loại đá chính: </th>
+				<td style="padding-left:20px;">@ViewBag.product.MainStone.Name</td>
+			</tr>
+			<tr>
+				<th>Loại đá phụ: </th>
+				<td style="padding-left:20px;">@ViewBag.product.SubStone.Name</td>
+			</tr>
+			<tr>
+				<th>Mệnh: </th>
+				<td style="padding-left:20px;">@ViewBag.product.Geomancy.Name</td>
+			</tr>
+			<tr>
+				<th>Màu sắc: </th>
+				<td style="padding-left:20px;">@ViewBag.product.Color</td>
+			</tr>
+			<tr>
+				<th>Note: </th>
+				<td style="padding-left:20px;">@ViewBag.product.Note</td>
+			</tr>
+		</table>
+	</div>
+	<br />
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateProduct" asp-area="admin" asp-controller="product" asp-action="update" >Chỉnh sửa</button>
+	<br />
+	<!-- The Modal -->
+	<form method="post" asp-area="admin" asp-controller="product" asp-action="update">
+	<div class="modal" id="updateProduct">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Chỉnh sửa sản phẩm</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+
+					<label >Tên sản phẩm</label>
+					<input type="text" class="form-control" placeholder="Nhập tên sản phẩm" asp-for="PRODUCT.Name">
+					<label for="product_category">Danh mục sản phẩm</label>
+					<select class="js-example-basic-single form-control select2-single" asp-for="PRODUCT.CatId">
+						<option selected value="">Chọn danh mục</option>
+						@foreach (var category in ViewBag.categories)
+						{
+							<option value="@category.Id">@category.Name</option>
+						}
+					</select>
+					<label for="product_main_stone">Loại đá chính</label>
+					<select class="js-example-basic-single form-control select2-single" asp-for="PRODUCT.MainStoneId">
+						<option selected value="">Chọn loại đá chính</option>
+						@foreach (var stoneType in ViewBag.stoneTypes)
+						{
+							<option value="@stoneType.Id">@stoneType.Name</option>
+						}
+					</select>
+					<label for="product_main_stone">Loại đá phụ</label>
+					<select class="js-example-basic-single form-control select2-single" asp-for="PRODUCT.SubStoneId">
+						<option selected value="">Chọn loại đá phụ</option>
+						@foreach (var stoneType in ViewBag.stoneTypes)
+						{
+							<option value="@stoneType.Id">@stoneType.Name</option>
+						}
+					</select>
+					<label for="product_main_stone">Loại mệnh</label>
+					<select class="js-example-basic-single form-control select2-single" asp-for="PRODUCT.GeomancyId">
+						<option selected value="">Chọn loại đá chính</option>
+						@foreach (var geomancy in ViewBag.geomancies)
+						{
+							<option value="@geomancy.Id">@geomancy.Name</option>
+						}
+					</select>
+					<label >Màu sắc</label>
+					<input type="text" class="form-control" placeholder="Nhập màu sản phẩm" asp-for="PRODUCT.Color">
+					<label >Note</label>
+					<input type="text" class="form-control" placeholder="Ghi chú" asp-for="PRODUCT.Note">
+
+					 <input type="hidden" asp-for="PRODUCT.Id"/>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<input type="submit" class="btn btn-primary" value="Xác nhận">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+			</div>
+
+		</div>
+	</div>
+	
+</div>
+</form>
+<br />
+<h3 style="color: #4B49AC">Chi tiết sản phẩm</h3>
+<div class="row" style="padding-right:10px;padding-bottom:10px;">
+	<div class="col-md-6">
+                        <a class="btn btn-primary" data-toggle="modal" data-target="#addProductDetail" asp-area="admin" asp-controller="product" asp-action="addProductDetail">Thêm loại</a>
+						<a class="btn btn-primary" data-toggle="modal" data-target="#importQuantity" asp-area="admin" asp-controller="product" asp-action="importQuantity">Nhập kho</a>
+                    </div>
+					</div>
+
+<!-- The Modal them chi tiet san pham -->
+	<form method="post" asp-area="admin" asp-controller="product" asp-action="addProductDetail">
+	<div class="modal" id="addProductDetail">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Thêm loại</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+
+					<label >Size sản phẩm</label>
+					<input type="number" class="form-control" name="size" placeholder="Nhập size sản phẩm">
+					<label >Số lượng nhập</label>
+					<input type="number" class="form-control" name="import_quantity" placeholder="Nhập số lượng nhập">
+					<label >Giá  nhập</label>
+					<input type="number" class="form-control" name="base_price" placeholder="Nhập giá nhập">
+					<label>Giá bán</label>
+					<input type="number" class="form-control" name="sale_price" placeholder="Nhập giá bán">
+					 <input type="hidden" name="product_id" value="@ViewBag.product.Id"/>
+
+					
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<input type="submit" class="btn btn-primary" value="Xác nhận">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+			</div>
+
+		</div>
+	</div>
+	
+</div>
+</form>
+<!-- The Modal nhap kho -->
+	<form method="post" asp-area="admin" asp-controller="product" asp-action="importQuantity">
+	<div class="modal" id="importQuantity">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Nhập kho</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<label>Chọn size sản phẩm muốn nhập kho</label>
+					<select class="js-example-basic-single form-control select2-single" name="id">
+						<option selected value="">Chọn size</option>
+						@foreach (var pd in ViewBag.productDetails)
+						{
+							<option value="@pd.ProductDetailId">@pd.Size</option>
+						}
+					</select>
+					<label >Số lượng nhập thêm</label>
+					<input type="number" class="form-control" name="import_quantity" placeholder="Nhập số lượng nhập">
+
+					
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<input type="submit" class="btn btn-primary" value="Xác nhận">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+			</div>
+
+		</div>
+	</div>
+	
+</div>
+</form>
+
+<div class="card">
+	<div class="card-body" style="text-align:center">
+
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							Size
+						</th>
+						<th>
+							Số lượng nhập
+
+						</th>
+						<th style="text-align:end">
+							Số lượng còn lại
+						</th>
+						<th></th>
+						<th>
+							Giá nhập
+						</th>
+						<th>
+							Giá bán
+						</th>
+						<th>
+							Ngày tạo
+						</th>
+						<th>#</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in ViewBag.productDetails)
+					{
+						<tr>
+							<td class="py-1">
+								@item.Size
+							</td>
+							<td>
+								@item.ImportQuantity
+							</td>
+							<td>
+								@{
+									double i = (item.Quantity * 100 / item.ImportQuantity * 100) / 100;
+								}
+								@if (@i < 10)
+								{
+									<div class="progress" style="height: 15px; font-size:0.875rem ">
+										<div class="progress-bar bg-danger" role="progressbar" style="width:@i% " aria-valuenow="@i" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								}
+								else
+								{
+									<div class="progress" style="height: 15px; font-size:0.875rem ">
+										<div class="progress-bar bg-success" role="progressbar" style="width:@i% " aria-valuenow="@i" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								}
+
+							</td>
+							<td>@item.Quantity</td>
+							<td>
+								@item.ProductPrice.BasePrice
+							</td>
+							<td>
+								@item.ProductPrice.SalePrice
+							</td>
+							<td>
+								@item.CreatedDate
+							</td>
+							<td><a asp-area="admin" asp-controller="product" asp-action="deleteProductDetail" asp-route-id="@item.ProductDetailId"><i class="mdi mdi-delete" onclick="return confirm('Xóa sản phẩm này?')"></i></a></td>
+							
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

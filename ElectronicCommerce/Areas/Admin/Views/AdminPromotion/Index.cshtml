@@ -1,0 +1,116 @@
+﻿@model ElectronicCommerce.Models.Promotion
+@{
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+	<div class="row">
+		<div class="col-md-12 grid-margin">
+			<div class="row">
+				<h3>Danh sách phiếu giảm giá</h3>
+			</div>
+			<div class="row">
+				<div class="create-new-access d-flex flex-row-reverse">
+					<a class="btn btn-primary" data-toggle="modal" data-target="#addPromotion" asp-area="admin" asp-controller="promotion" asp-action="add">Tạo phiếu giảm giá</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="table-responsive">
+		<table class="table" style="text-align:center">
+			<thead>
+				<tr>
+					<th>Mã</th>
+					<th>Tên phiếu giảm giá</th>
+					<th>Giảm</th>
+					<th>Ngày bắt đầu</th>
+					<th>Ngày kết thúc</th>
+					<th>Code</th>
+					<th>#</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var promotion in ViewBag.promotions)
+				{
+
+					<tr>
+						<td>@promotion.Id</td>
+						<td>@promotion.Name</td>
+						<td>@promotion.DiscountValue@promotion.DiscountUnit</td>
+						<td>@promotion.StartDate</td>
+						<td>@promotion.EndDate</td>
+						<td>@promotion.Code</td>
+						<td> <a asp-area="admin" asp-controller="promotion" asp-action="detail" asp-route-id="@promotion.Id">Chi tiết</a></td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+	<form method="post" asp-area="admin" asp-controller="promotion" asp-action="add">
+		<div class="modal" id="addPromotion">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Tạo phiếu giảm giá mới</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+
+						<label>Tên phiếu giảm giá</label>
+						<input type="text" class="form-control" asp-for=Name placeholder="Nhập tên phiếu giảm giá">
+						<label>Giá trị giảm</label>
+						<input type="number" class="form-control" asp-for=DiscountValue placeholder="Nhập giá trị giảm giá">
+						<label>Đơn vị</label>
+						<select class="js-example-basic-single form-control select2-single" asp-for=DiscountUnit>
+							<option selected value="">Chọn đơn vị</option>
+							<option>%</option>
+							<option>$</option>
+						</select>
+						<label>Mô tả</label>
+						<input type="text" class="form-control" asp-for=Description placeholder="Nhập mô tả">
+						<label>Ngày bắt đầu</label>
+						<input type="date" class="form-control" id="StartDate" name="StartDate" asp-for=StartDate placeholder="Ngày bắt đầu">
+						<label>Ngày kết thúc</label>
+						<input type="date" class="form-control" id="EndDate" name="EndDate" asp-for=EndDate placeholder="Ngày kết thúc">
+						<label>Code</label>
+						<input type="text" class="form-control" asp-for=Code placeholder="Nhập mã code">
+						<label>Giảm tối đa (Nếu giảm theo $, bỏ qua phần này)</label>
+						<input type="number" class="form-control" asp-for=MaxDiscount placeholder="Nhập số tiền giảm tối đa">
+						<label>Đơn tối thiếu</label>
+						<input type="number" class="form-control" asp-for=MinOrder placeholder="Nhập số tiền tối thiểu của đơn hàng">
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-primary" onclick="return validateDates()" value="Xác nhận">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</form>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function validateDates() {
+        var startDate = new Date(document.getElementById("StartDate").value);
+        var endDate = new Date(document.getElementById("EndDate").value);
+
+        if (endDate < startDate) {
+            alert("Ngày bắt đầu phải bé hơn ngày kết thúc!");
+            return false;
+        }
+
+        return true;
+    }
+</script>

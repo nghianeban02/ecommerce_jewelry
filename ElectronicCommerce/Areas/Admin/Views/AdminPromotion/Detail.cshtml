@@ -1,0 +1,272 @@
+﻿@model ElectronicCommerce.Areas.Admin.ViewModels.CommonPromotionModel
+@{
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.switch {
+			position: relative;
+			display: inline-block;
+			width: 60px;
+			height: 34px;
+		}
+
+			.switch input {
+				opacity: 0;
+				width: 0;
+				height: 0;
+			}
+
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #ccc;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+
+			.slider:before {
+				position: absolute;
+				content: "";
+				height: 26px;
+				width: 26px;
+				left: 4px;
+				bottom: 4px;
+				background-color: white;
+				-webkit-transition: .4s;
+				transition: .4s;
+			}
+
+		input:checked + .slider {
+			background-color: #2196F3;
+		}
+
+		input:focus + .slider {
+			box-shadow: 0 0 1px #2196F3;
+		}
+
+		input:checked + .slider:before {
+			-webkit-transform: translateX(26px);
+			-ms-transform: translateX(26px);
+			transform: translateX(26px);
+		}
+
+		/* Rounded sliders */
+		.slider.round {
+			border-radius: 34px;
+		}
+
+			.slider.round:before {
+				border-radius: 50%;
+			}
+	</style>
+</head>
+<body>
+	<div class="content-wrapper">
+		<h3>@ViewBag.promotion.Id - @ViewBag.promotion.Name</h3>
+		<div class="row">
+			<div class="col-md-6 grid-margin stretch-card">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Chi tiết phiếu</h4>
+						<div class="table-responsive">
+							<table>
+								<tr>
+									<th>Tên phiếu giảm giá: </th>
+									<td style="padding-left:50px;">@ViewBag.promotion.Name</td>
+								</tr>
+								<tr>
+									<th>Mô tả: </th>
+									<td style="padding-left:50px;">@ViewBag.promotion.Description</td>
+								</tr>
+								<tr>
+									<th>Giảm: </th>
+									<td style="padding-left:50px;">@ViewBag.promotion.DiscountValue@ViewBag.promotion.DiscountUnit</td>
+								</tr>
+								<tr>
+									<th>Giảm tối đa: </th>
+									<td style="padding-left:50px;">@ViewBag.promotion.MaxDiscount$</td>
+								</tr>
+								<tr>
+									<th>Đơn tối thiếu: </th>
+									<td style="padding-left:50px;">@ViewBag.promotion.MinOrder$</td>
+								</tr>
+								<tr>
+									<th>Ngày bắt đầu: </th>
+									<td style="padding-left:50px;">@ViewBag.promotion.StartDate</td>
+								</tr>
+								<tr>
+									<th>Ngày kết thúc: </th>
+									<td style="padding-left:50px;">@ViewBag.promotion.EndDate</td>
+								</tr>
+								<tr>
+									<th>Số lượng áp dụng: </th>
+									<td style="padding-left:50px;"></td>
+								</tr>
+								<tr>
+									<th>Trạng thái:</th>
+									<td style="padding-left:50px;padding-top:10px;">
+										@if (ViewBag.promotion.Activate == true)
+										{
+											<label class="switch">
+												<input type="checkbox" class="activate" checked value="true" data-id="@ViewBag.promotion.Id">
+												<span class="slider round"></span>
+											</label>
+										}
+										else
+										{
+											<label class="switch">
+												<input type="checkbox" class="activate" value="false" data-id="@ViewBag.promotion.Id">
+												<span class="slider round"></span>
+											</label>
+										}
+									</td>
+								</tr>
+							</table>
+						</div>
+						<br />
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updatePromotion" asp-area="admin" asp-controller="promotion" asp-action="update">Chỉnh sửa</button>
+						<br />
+						<!-- The Modal -->
+						<form method="post" asp-area="admin" asp-controller="promotion" asp-action="update">
+							<div class="modal" id="updatePromotion">
+								<div class="modal-dialog">
+									<div class="modal-content">
+
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h4 class="modal-title">Chỉnh sửa phiếu giảm giá</h4>
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+										</div>
+
+										<!-- Modal body -->
+										<div class="modal-body">
+
+											<label>Tên khuyến mãi</label>
+											<input type="text" class="form-control" placeholder="Nhập tên phiếu giảm giá" asp-for="promotion.Name">
+											<label>Giá trị giảm giá</label>
+											<input type="number" class="form-control" placeholder="Nhập giá trị giảm giá" asp-for="promotion.DiscountValue">
+											<label>Đơn vị giảm giá</label>
+											<select class="js-example-basic-single form-control select2-single" asp-for="promotion.DiscountUnit">
+												<option>%</option>
+												<option>$</option>
+											</select>
+											<label>Mô tả</label>
+											<input type="text" class="form-control" placeholder="Nhập mô tả" asp-for="promotion.Description">
+											<label>Ngày bắt đầu</label>
+											<input type="date" class="form-control" placeholder="Ngày bắt đầu" asp-for="promotion.StartDate">
+											<label>Ngày kết thúc</label>
+											<input type="date" class="form-control" placeholder="Nhập ngày kết thúc" asp-for="promotion.EndDate">
+											<label>Code</label>
+											<input type="text" class="form-control" placeholder="Nhập code" asp-for="promotion.Code">
+											<label>Giảm tối đa</label>
+											<input type="number" class="form-control" placeholder="Nhập số tiền giảm tối đa" asp-for="promotion.MaxDiscount">
+											<label>Đơn tối thiểu để áp dụng mã khuyến mãi này</label>
+											<input type="number" class="form-control" placeholder="Nhập số tiền của đơn hàng tối thiểu" asp-for="promotion.MinOrder">
+											<input type="hidden" asp-for="promotion.Id" />
+										</div>
+
+										<!-- Modal footer -->
+										<div class="modal-footer">
+											<input type="submit" class="btn btn-primary" value="Xác nhận">
+											<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Đối tượng khách hàng áp dụng</h4>
+                  <div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Mã loại khách hàng</th>
+										<th>Tên loại khách hàng</th>
+										<th>#</th>
+									</tr>
+								</thead>
+								<tbody>
+									
+										@{
+											foreach (var item in @ViewBag.promotionDetails)
+											{
+												<tr>
+												<td>@item.CustomerTypeId</td>
+												<td>@item.CustomerType.CustomerTypeName</td>
+												<td><a asp-area="admin" asp-controller="promotion" asp-action="deleteCustomerType" asp-route-id="@item.IdPromotionDetail">Xóa</a></td>
+												</tr>
+											}
+										}
+
+								
+								</tbody>
+							</table>
+                  </div>
+				  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCustomerType" asp-area="admin" asp-controller="promotion" asp-action="addCustomerType">Thêm</button>
+				  <!-- The Modal -->
+						<form method="post" asp-area="admin" asp-controller="promotion" asp-action="addCustomerType">
+							<div class="modal" id="addCustomerType">
+								<div class="modal-dialog">
+									<div class="modal-content">
+
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h4 class="modal-title">Thêm đối tượng khách hàng</h4>
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+										</div>
+
+										<!-- Modal body -->
+										<div class="modal-body">
+											<label>Danh sách đối tượng khách hàng</label>
+											<select class="js-example-basic-single form-control select2-single" name="customer_type_id">
+												<option selected value="">Chọn đối tượng khách hàng</option>
+												@foreach (var customerType in ViewBag.CustomerType)
+												{
+													<option value="@customerType.Id">@customerType.CustomerTypeName</option>
+												}
+											</select>
+											<input type="hidden" name="promotion_id" value="@ViewBag.promotion.Id"/>
+
+										</div>
+
+										<!-- Modal footer -->
+										<div class="modal-footer">
+											<input type="submit" class="btn btn-primary" value="Xác nhận">
+											<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</form>
+                </div>
+              </div>
+            </div>
+
+
+	</div>
+</body>
+
+<script src="~/admin/lib/Promotion.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

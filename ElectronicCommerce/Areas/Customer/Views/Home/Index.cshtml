@@ -1,0 +1,573 @@
+﻿ @{
+    Layout = "~/Areas/Customer/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div id="vnt-content">
+    <div class="boxhome">
+        <div class="bannerhome">
+            <div class="slbannerhome vhbtnslick vhdots vhslick-lg-15 vhslick-sm-10">
+
+                <div class="item">
+                    <a href="https://ijc.vn/vn/deal-hot-thang-2-uu-dai-len-den-10.html" title="" onmousedown="return rwt(this,'advertise',109)" target="_blank">
+                        <div class="bg" style="background-image: url(https://cdn.shopify.com/s/files/1/0558/3509/9288/files/Is_Gold_or_Silver_a_better_investment_for_Wedding_Jewelry_53_811ce64c-e8d9-4708-8b12-194d4885209e.png?v=1641563410); ">
+                            <img src="~/customer/img/banner-1.png" alt="" />
+                        </div>
+                    </a>
+                </div>
+
+                @*<div class="item">
+                    <a href="https://ijc.vn/vn/mien-phi-thiet-ke-doc-ban-trang-suc.html" title="" onmousedown="return rwt(this,'advertise',113)" target="_blank">
+                        <div class="bg" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8yKBOLjFjaTvdO2em-lgwLr1pwoHhpwZ5h7-GbTWt22mNvASBJ8ocwWhks5r4ey4NlSc&usqp=CAU);">
+                            <img src="" alt="" />
+                        </div>
+                    </a>
+                </div>*@
+
+            </div>
+            <div class="btndownmm">
+                <a href="#vhdownmm">
+                    <img src="https://ijc.vn/modules/main/images/down.png" alt="down" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="boxhome">
+        <div class="bansmhome">
+            <div class="wrapping">
+                <div class="slbansmhome vhdots vhslick-lg-15">
+
+                    <div class="colsl">
+                        <div class="banersmh">
+                            <a class="vhdisplay-block vhthumbborder" href="http://ijc.vn/ve-sinh-trang-suc-gia-0-dong-tai-ijc-charm-club.html" title="Banner 02" onmousedown="return rwt(this,'advertise','84')" target='_blank'>
+                                <img src="https://ijc.vn/vnt_upload/weblink/116_Ve_sinh_Trang_Suc_01.jpg" alt="Banner 02" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="colsl">
+                        <div class="banersmh">
+                            <a class="vhdisplay-block vhthumbborder" href="http://ijc.vn/tao-nen-su-khac-biet-cung-trang-suc-thiet-ke.html" title="Banner 01" onmousedown="return rwt(this,'advertise','83')" target='_blank'>
+                                <img src="https://ijc.vn/vnt_upload/weblink/117_thiet_ke__02.jpg" alt="Banner 01" />
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="boxhome">
+        <div class="productnnhome">
+            <div class="wrapping">
+                <div class="vhproductnn">
+                  
+                    <div class="vhtabpro hidden-lg">
+                        <ul class="vhflex vhflex-scroll-text">
+                            <li>
+                                <a href="https://ijc.vn/vn/mat-day-chuyen.html">MẶT DÂY CHUYỀN
+                            </li>
+                            <li>
+                                <a href="https://ijc.vn/vn/nhan.html">NHẪN
+                            </li>
+                            <li>
+                                <a href="https://ijc.vn/vn/lac-va-vong-tay.html">LẮC &amp; VÒNG TAY
+                            </li>
+                            <li>
+                                <a href="https://ijc.vn/vn/day-chuyen.html">DÂY LIỀN MẶT
+                            </li>
+                            <li>
+                                <a href="https://ijc.vn/vn/bong-tai.html">BÔNG TAI
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="vhcontnn">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="boxhome">
+        <div class="productnnhome">
+            <div class="wrapping">
+                <div class="vhproductnn">
+                    <div class="vhtitlenn">
+                        <div class="title">
+                            <h2>SẢN PHẨM NỔI BẬT</h2>
+                        </div>
+                        <div class="grtabview">
+                            <div class="tab hidden-xs hidden-sm hidden-md">
+                                
+                            </div>
+                            <div class="view">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vhtabpro hidden-lg">
+                        <ul class="vhflex vhflex-scroll-text">
+                            
+                        </ul>
+                    </div>
+                    <div class="vhcontnn">
+                        <div class="grproductnn vhflex vhflex-scroll-block">
+                            @foreach (var item in ViewBag.homePros)
+                            {
+                                <div class="colsl">
+                                    <div class="itemproductall">
+                                        <div class="thumb">
+                                            @if (item.DISCOUNT_VALUE != null)
+                                            {
+                                                <div class="discount-banner">-@item.DISCOUNT_VALUE%</div>
+                                            }
+                                            <a class="vhthumbzoom vhthumb-100 vhthumb-center" asp-area="customer" asp-controller="product" asp-action="detail" asp-route-id="@item.PRODUCT_ID">
+                                                <img src="~/admin/images/products/@item.IMAGE" alt="@item.NAME">
+                                            </a>
+                                        </div>
+                                        <div class="decs">
+                                            <div class="dstile">
+                                                <h3>
+                                                    <a href="#">@item.NAME</a>
+                                                </h3>
+                                            </div>
+                                            <div class="dsprive">
+                                                @if (item.DISCOUNT_VALUE != null)
+                                                {
+                                                    var discountedPrice = item.PRICE * (100 - item.DISCOUNT_VALUE) / 100;
+                                                    <span class="dsnews" style="margin-left:10px;margin-right:10px;">@discountedPrice.ToString("#,###") $</span>
+                                                    <span class="dsnews" style="font-size:14px;color:#999"><del><small>@item.PRICE.ToString("#,###") $</small></del></span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="dsnews">@item.PRICE.ToString("#,###") $</span>
+                                                }
+                                            </div>
+                                            <div class="dsview">
+                                                <input type="button" data-id="@item.PRODUCT_ID" class="btn btn-add-to-cart" value="Thêm vào giỏ hàng">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="boxhome">
+        <div class="productnnhome">
+            <div class="wrapping">
+                <div class="vhproductnn">
+                    <div class="vhtitlenn">
+                        <div class="title">
+                            <h2>BÁN CHẠY NHẤT</h2>
+                        </div>
+                    </div>
+                    <div class="vhtabpro hidden-lg">
+                        
+                    </div>
+                    <div class="vhcontnn">
+                        <div class="grproductnn vhflex vhflex-scroll-block">
+                            @foreach (var item in ViewBag.bestPros)
+                            {
+                                <div class="colsl">
+                                    <div class="itemproductall">
+                                        <div class="thumb">
+                                            @if(item.IS_SOLDOUT)
+                                            {
+                                            <div class="sold-out-banner"></div>
+                                            }
+                                            @if (item.DISCOUNT_VALUE != null)
+                                            {
+                                                <div class="discount-banner">-@item.DISCOUNT_VALUE%</div>
+                                            }
+                                            <a class="vhthumbzoom vhthumb-100 vhthumb-center" asp-area="customer" asp-controller="product" asp-action="detail" asp-route-id="@item.PRODUCT_ID">
+                                                <img src="~/admin/images/products/@item.IMAGE" alt="@item.NAME">
+                                            </a>
+                                        </div>
+                                        <div class="decs">
+                                            <div class="dstile">
+                                                <h3>
+                                                    <a href="#">@item.NAME</a>
+                                                </h3>
+                                            </div>
+                                            <div class="dsprive">
+                                                @if (item.DISCOUNT_VALUE != null)
+                                                {
+                                                    var discountedPrice = item.PRICE * (100 - item.DISCOUNT_VALUE) / 100;
+                                                    <span class="dsnews" style="margin-left:10px;margin-right:10px;">@discountedPrice.ToString("#,###") $</span>
+                                                    <span class="dsnews" style="font-size:14px;color:#999"><del><small>@item.PRICE.ToString("#,###") $</small></del></span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="dsnews">@item.PRICE.ToString("#,###") $</span>
+                                                }
+                                            </div>
+                                            <div class="dsview">
+                                                @if (item.IS_SOLDOUT)
+                                                {
+                                                    <input type="button" class="btn btn-add-to-cart-disable" value="Thêm vào giỏ hàng">
+                                                }
+                                                else
+                                                {
+                                                    <input type="button" data-id="@item.PRODUCT_ID" class="btn btn-add-to-cart" value="Thêm vào giỏ hàng">
+                                                }
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="boxhome">
+        <div class="testihome">
+            <div class="wrapping">
+                <div class="vhtestihome">
+                    <div class="vhtitlemm">
+                        <div class="title">
+                            <h2>CẢM NHẬN KHÁCH HÀNG</h2>
+                        </div>
+                    </div>
+                    <div class="vhcontmm">
+                        <div class="grtestihome">
+                            <div class="coll">
+                                <div class="vhvideotes">
+                                    <a href="https://youtu.be/owLl_8KYoMc" data-fancybox="">
+                                        <img src="https://ijc.vn/vnt_upload/weblink/top_4_don_vi_vang_va_trang_suc_co_mang_luoi_phan_phoi_lon_nhat_viet_nam_video.jpg" alt="DÁNG VIỆT">
+                                        <span class="playvideo vhtoa"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="colr">
+                                <div class="sltestinav vhslick-lg-7">
+
+                                    <div class="colSl">
+                                        <div class="itemFor">
+                                            <img src="https://ijc.vn/vnt_upload/about/ava1.jpg" alt="Chị Xuân Đào" />
+                                        </div>
+                                    </div>
+
+                                    <div class="colSl">
+                                        <div class="itemFor">
+                                            <img src="https://ijc.vn/vnt_upload/about/ava6.jpg" alt="Chị Kim Loan" />
+                                        </div>
+                                    </div>
+
+                                    <div class="colSl">
+                                        <div class="itemFor">
+                                            <img src="https://ijc.vn/vnt_upload/about/ava2.jpg" alt="Chị Uyên Phương" />
+                                        </div>
+                                    </div>
+
+                                    <div class="colSl">
+                                        <div class="itemFor">
+                                            <img src="https://ijc.vn/vnt_upload/about/ava5.jpg" alt="Chị Loan" />
+                                        </div>
+                                    </div>
+
+                                    <div class="colSl">
+                                        <div class="itemFor">
+                                            <img src="https://ijc.vn/vnt_upload/about/ava3.jpg" alt="Chị Phương" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="sltestifor">
+
+                                    <div class="colSl">
+                                        <div class="decstesti">
+                                            <div class="nametesti">
+                                                <div class="name">Chị Xuân Đào</div>
+                                                <div class="cv">CEO SPA</div>
+                                            </div>
+                                            <div class="tendtesti">
+                                                <p>“Cảm giác đầu tiên khi đến cửa hàng HNJ là số lượng trang sức rất nhiều, mẫu mã đa dạng. Các loại đá quý bên đây thì nhiều chủng loại, được thiết kế rất bắt mắt, nhìn cái nào cũng đẹp. Thật sự là tôi gần như không thoát ra được khi đến đây xem và thử trang sức, cái nào cũng ưng ý, cũng muốn mua hết.”</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="colSl">
+                                        <div class="decstesti">
+                                            <div class="nametesti">
+                                                <div class="name">Chị Kim Loan</div>
+                                                <div class="cv">Kinh doanh</div>
+                                            </div>
+                                            <div class="tendtesti">
+                                                <p>“Tôi là dân làm ăn vì vậy rất chú trọng trong việc lựa chọn đá phong thủy đeo bên người. Khi đến showroom HNJ tôi khá bất ngờ về kiến thức và sự hiểu biết của các bạn sale. Các bạn không chỉ nhiệt tình mà còn đưa ra lời khuyên tốt giúp tôi chọn được trang sức phù hợp với bản mệnh và sở thích của mình.”</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="colSl">
+                                        <div class="decstesti">
+                                            <div class="nametesti">
+                                                <div class="name">Chị Uyên Phương</div>
+                                                <div class="cv">Nội trợ</div>
+                                            </div>
+                                            <div class="tendtesti">
+                                                <p>“Lần kỷ niệm ngày cưới 5 năm, chồng tôi đã tặng cho tôi một chiếc nhẫn đá Sapphire vàng, nó thật sự rất đẹp. Chồng tôi nói, chiếc nhẫn này thuộc dòng Infinity, theo chính sách bên HNJ thì sau 2 năm tôi có thể nhận thêm lãi suất ngân hàng nếu bán lại. Tôi cảm thấy chính sách này rất tốt nếu tôi muốn đổi sản phẩm khác.”</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="colSl">
+                                        <div class="decstesti">
+                                            <div class="nametesti">
+                                                <div class="name">Chị Loan</div>
+                                                <div class="cv">Giáo viên Trường THPT</div>
+                                            </div>
+                                            <div class="tendtesti">
+                                                <p>“Tôi thật sự rất ấn tượng với thương hiệu HNJ. Trang sức của họ không chỉ đẹp mà chính sách của họ còn tốt nữa. Tôi đã từng mua trang sức của rất nhiều thương hiệu, so sánh thì hiện tại HNJ là có tỉ lệ thu đổi cao nhất, như vậy lúc bán lại chênh lệch sẽ không cao.”</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="colSl">
+                                        <div class="decstesti">
+                                            <div class="nametesti">
+                                                <div class="name">Chị Phương</div>
+                                                <div class="cv">Nhân viên văn phòng</div>
+                                            </div>
+                                            <div class="tendtesti">
+                                                <p>“Trang sức thiết kế tại HNJ rất đa dạng, phải nói là gần như không tìm thấy sản phẩm trùng nhau luôn, mỗi sản phẩm là duy nhất. Tôi thích điểm này nhất, như vậy món trang sức đó là độc nhất vô nhị chỉ mình tôi có thôi.”</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- modal popup cart choose finger size -->
+<div id="fingerSizeModal" class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__body">
+        <!-- Register form -->
+        <div class="add-cart__popup">
+            <div class="add-cart__container">
+                <div class="add-to-cart__header">
+                    <div class="modal__close" onclick="closeModalFingerSize()">
+                        <i class="fa fa-close"></i>
+                    </div>
+                    <span class="add-to-cart__heading">VUI LÒNG CHỌN SIZE</span>
+                </div>
+                <div class="add-cart__body">
+                    <div class="product-img">
+                        <img src="" width="300px" height="300px" alt="#" class="product-thumbnail">
+                    </div>
+                    <div class="product-size__info" style="margin-top:14px;">
+                        <p style="font-size: 22px;" class="product-name">
+                            Bông tai đá Amethyst 22B.013NMBL
+                        </p>
+                        <div class="product-detail">
+                            <div style="color:darkgrey;" class="product-id">Mã SP: 1CB200149</div>
+                            <div class="product-rate">
+                                <div style="margin-right: 30px;"><span style="color:#FFC108" class="fa fa-star checked"></span> <i>4 (5)</i></div>
+                                <div><span>2000+ đã bán</span></div>
+                            </div>
+                        </div>
+                        <div class="product-price" style="font-size: 20px;margin-top: 10px;color:#003468">
+                            8.360.000 đ
+                        </div>
+                        <div class="product-size__choose">
+                            <div>
+                                <span style="font-size: 16px;">Chọn kích cỡ:</span>
+                            </div>
+                            <div class="size-wrap" onclick="showFingerSizeGuide()">
+                                <div>
+                                    <i><u style="font-size: 14px;">Cách đo size nhẫn</u></i>
+                                    <div class="size-guide__table" id="size-guide__table">
+                                        <div class="size-guide__table-wrap">
+                                            <div class="size-guide-close">
+                                                <i onclick="hideFingerSizeGuide(event)" class="fa fa-close"></i>
+                                            </div>
+                                            <p style="text-align: center;font-size: 20px;">
+                                                Cách đo size nhẫn
+                                            </p>
+                                            <div class="size-guide-wrap" style="padding:0;">
+                                                <p style="font-size: 13px;">1. Dùng chỉ hoặc giấy bản nhỏ đo quấn quanh khớp tay, đánh dấu vị trí cắt nhau</p>
+                                                <p style="text-align: center;"> <img class="image-lazyload" alt="1. Dùng chỉ hoặc giấy bản nhỏ đo quấn quanh khớp tay, đánh dấu vị trí cắt nhau" src="https://cdn.pnj.io/images/image-update/2022/guide-size/size-nhan.svg" style="display: inline;"> </p>
+                                            </div>
+
+                                            <div class="size-guide-wrap" style="padding:0;">
+                                                <p style="font-size: 13px;">2. Dùng thước đo chiều dài đoạn dây vừa đo được (đơn vị cm)</p>
+                                                <p style="text-align: center;"> <img class="image-lazyload" alt="1. Dùng chỉ hoặc giấy bản nhỏ đo quấn quanh khớp tay, đánh dấu vị trí cắt nhau" src="https://cdn.pnj.io/images/image-update/2022/guide-size/thuoc-do.svg" style="display: inline;"> </p>
+                                            </div>
+                                        </div>
+                                        <div class="size__measure">
+                                            <div class="size__measure-wrap">
+                                                <span style="font-size: 14px;">Kết quả:</span>
+                                                <div class="size-result-wrap">
+                                                    <div><input type="radio" name="chu_vi_ngon_tay" value="9"> 3.6 cm </div>
+                                                    <div><input type="radio" name="chu_vi_ngon_tay" value="10"> 3.8 cm </div>
+                                                    <div><input type="radio" name="chu_vi_ngon_tay" value="11"> 4.0 cm </div>
+                                                    <div><input type="radio" name="chu_vi_ngon_tay" value="12"> 4.2 cm </div>
+                                                    <div><input type="radio" name="chu_vi_ngon_tay" value="13"> 4.4 cm </div>
+                                                    <div><input type="radio" name="chu_vi_ngon_tay" value="14"> 4.6 cm </div>
+                                                    <div><input type="radio" name="chu_vi_ngon_tay" value="15"> 4.8 cm </div>
+                                                </div>
+                                            </div>
+                                            @* Script chon size nhan *@
+                                            <script>$(document).ready(function () {
+                                                    $('input[type=radio][name=chu_vi_ngon_tay]').change(function () {
+                                                        console.log(this.value);
+                                                        $('#size-result').val(this.value);
+                                                    });
+                                                });</script>
+
+                                            <div class="size-description-wrap">
+                                                <span style="font-size: 14px;">Bảng size phổ biến</span>
+                                                <img src="https://cdn.pnj.io/images/image-update/2022/guide-size/nhan_v2.svg" alt="Ruler" style="display: inline; margin-top: 6px;">
+                                                <br>
+                                                <div style="display: flex; flex-direction: row; margin-top: 30px;">
+                                                    <span style="font-size: 13px;align-self: center;">Size nhẫn: </span> <input type="text" style="text-align: center; color: #8F7D59;" id="size-result" readonly="readonly">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-size__box">
+
+                        </div>
+                        <div class="product-stock" style="margin-top: 10px;font-size: 14px;color:#003468;">
+                            Còn hàng
+                        </div>
+                        <div class="btn-add-to-cart__confirm">
+                            <span style="margin:auto;">THÊM VÀO GIỎ HÀNG CỦA BẠN </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal popup cart choose wrist size -->
+
+<div id="wristSizeModal" class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__body">
+        <!-- Register form -->
+        <div class="add-cart__popup">
+            <div class="add-cart__container">
+                <div class="add-to-cart__header">
+                    <div class="modal__close" onclick="closeModalWristSize()">
+                        <i class="fa fa-close"></i>
+                    </div>
+                    <span class="add-to-cart__heading">VUI LÒNG CHỌN SIZE</span>
+                </div>
+                <div class="add-cart__body">
+                    <div class="product-img">
+                        <img src="" width="300px" height="300px" alt="#" class="product-thumbnail">
+                    </div>
+                    <div class="product-size__info" style="margin-top:14px;">
+                        <p style="font-size: 22px;" class="product-name">
+                            Bông tai đá Amethyst 22B.013NMBL
+                        </p>
+                        <div class="product-detail">
+                            <div style="color:darkgrey;" class="product-id">Mã SP: 1CB200149</div>
+                            <div class="product-rate">
+                                <div style="margin-right: 30px;"><span style="color:#FFC108" class="fa fa-star checked"></span> <i>4 (5)</i></div>
+                                <div><span>2000+ đã bán</span></div>
+                            </div>
+                        </div>
+                        <div class="product-price" style="font-size: 20px;margin-top: 10px;color:#003468">
+                            8.360.000 đ
+                        </div>
+                        <div class="product-size__choose">
+                            <div>
+                                <span style="font-size: 16px;">Chọn kích cỡ:</span>
+                            </div>
+                            <div class="size-wrap" onclick="showWristSizeGuide()">
+                                <div>
+                                    <i><u style="font-size: 14px;">Cách đo size vòng tay</u></i>
+                                    <div class="size-guide__table" id="size-wrist-guide__table">
+                                        <div class="size-guide__table-wrap">
+                                            <div class="size-guide-close">
+                                                <i onclick="hideWristSizeGuide(event)" class="fa fa-close"></i>
+                                            </div>
+                                            <p style="text-align: center;font-size: 20px;">
+                                                Cách đo size vòng tay
+                                            </p>
+                                            <div class="size-guide-wrap" style="padding:0;">
+                                                <p style="font-size: 13px;">1. Dùng chỉ hoặc giấy bản nhỏ đo quấn quanh khớp tay, đánh dấu vị trí cắt nhau</p>
+                                                <p style="text-align: center;"> <img class="image-lazyload" alt="1. Dùng chỉ hoặc giấy bản nhỏ đo quấn quanh khớp tay, đánh dấu vị trí cắt nhau" src="https://cdn.pnj.io/images/image-update/2022/guide-size/size-vong-lac.svg" style="display: inline;"> </p>
+                                            </div>
+
+                                            <div class="size-guide-wrap" style="padding:0;">
+                                                <p style="font-size: 13px;">2. Dùng thước đo chiều dài đoạn dây vừa đo được (đơn vị cm)</p>
+                                                <p style="text-align: center;"> <img class="image-lazyload" alt="1. Dùng chỉ hoặc giấy bản nhỏ đo quấn quanh khớp tay, đánh dấu vị trí cắt nhau" src="https://cdn.pnj.io/images/image-update/2022/guide-size/thuoc-do.svg" style="display: inline;"> </p>
+                                            </div>
+                                        </div>
+                                        <div class="size__measure">
+                                            <div class="size__measure-wrap">
+                                                <span style="font-size: 14px;">Kết quả:</span>
+                                                <div class="size-result-wrap">
+                                                    <div><input type="radio" name="chu_vi_vong_tay" value="12"> 6.6 cm </div>
+                                                    <div><input type="radio" name="chu_vi_vong_tay" value="13"> 6.8 cm </div>
+                                                    <div><input type="radio" name="chu_vi_vong_tay" value="14"> 7.0 cm </div>
+                                                    <div><input type="radio" name="chu_vi_vong_tay" value="15"> 7.2 cm </div>
+                                                    <div><input type="radio" name="chu_vi_vong_tay" value="16"> 7.8 cm </div>
+                                                </div>
+                                            </div>
+                                            @* Script chon size nhan *@
+
+                                            <script>$(document).ready(function () {
+                                                    $('input[type=radio][name=chu_vi_vong_tay]').change(function () {
+                                                        console.log(this.value);
+                                                        $('#size-result-wrist').val(this.value);
+                                                    });
+                                                });</script>
+
+                                            <div class="size-description-wrap">
+                                                <span style="font-size: 14px;">Bảng size phổ biến</span>
+                                                <img src="https://cdn.pnj.io/images/image-update/2022/guide-size/nhan_v2.svg" alt="Ruler" style="display: inline; margin-top: 6px;">
+                                                <br>
+                                                <div style="display: flex; flex-direction: row; margin-top: 30px;">
+                                                    <span style="font-size: 13px;align-self: center;">Size vòng tay: </span> <input type="text" style="text-align: center; color: #8F7D59;" id="size-result-wrist" readonly="readonly">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-size__box">
+
+                        </div>
+                        <div class="product-stock" style="margin-top: 10px;font-size: 14px;color:#003468;">
+                            Còn hàng
+                        </div>
+                        <input type="hidden" id="size" value="0" />
+                        <input type="hidden" id="product-id" value="0" />
+                        <div class="btn-add-to-cart__confirm">
+                            <span style="margin:auto;">THÊM VÀO GIỎ HÀNG CỦA BẠN </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
