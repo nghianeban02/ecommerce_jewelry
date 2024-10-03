@@ -18,3 +18,14 @@ Jewelry Listing: Customers can browse through a wide range of jewelry items, vie
 Customer Support: Users can chat with customer support in real-time using the Tawk.to chat feature.
 User Authentication: Customers can register, log in, recover passwords, and receive notifications via Google Authentication.
 Payment Processing: Secure online payments handled through PayPal, ensuring customer transactions are fast and reliable.
+
+Installation
+To set up the project locally, follow these steps:
+
+Clone the repository:
+git clone https://github.com/nghianeban02/ecommerce_jewelry.git
+Install dependencies: Navigate to the project directory and install the required packages:
+cd ecommerce_jewelry
+dotnet restore
+Run the application: To run the application locally:
+dotnet run
